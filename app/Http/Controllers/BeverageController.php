@@ -33,7 +33,7 @@ class BeverageController extends Controller
         $request->validate([
             'beverage_type_id' => 'required',
             'outlet_id' => 'required',
-            'nama' => 'required|string',
+            'name' => 'required|string',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
         ]);
@@ -41,13 +41,13 @@ class BeverageController extends Controller
         Beverage::create([
             'beverage_type_id' => $request->beverage_type_id, 
             'outlet_id' => $request->outlet_id, 
-            'name' => $request->nama, 
+            'name' => $request->name, 
             'price' => $request->price, 
             'quantity' => $request->quantity,
             'rating' => 0 ,
         ]);
 
-        return redirect()->route('beverages.index')->with('success', "Beverage has successfuly created");
+        return redirect()->route('beverages.index')->with('success', "Beverage has been successfuly created");
 
     }
 
@@ -74,6 +74,6 @@ class BeverageController extends Controller
     {
         $beverage = Beverage::find($id);
         $beverage->delete();
-        return redirect()->back()->with('success',"Beverage has successfuly deleted");
+        return redirect()->back()->with('success',"Beverage has been successfuly deleted");
     }
 }

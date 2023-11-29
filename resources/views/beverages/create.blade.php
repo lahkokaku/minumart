@@ -13,11 +13,11 @@
                             <option value="{{ $beverageType->id }}">{{ $beverageType->name }}</option>
                         @endforeach
                     </select>
-                    @if ($errors->has('beverage_type_id'))
+                    @error('beverage_type_id')
                         <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('beverage_type_id') }}.</strong>
+                            <small>*{!! $message !!}.</small>
                         </span>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="form-group mb-3">
@@ -28,22 +28,22 @@
                             <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
                         @endforeach
                     </select>
-                    @if ($errors->has('outlet_id'))
+                    @error('outlet_id')
                         <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('outlet_id') }}.</strong>
+                            <small>*{!! $message !!}.</small>
                         </span>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="nama" class="col-form-label">Nama <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" placeholder="Enter beverage's name" name="nama"
-                        id="nama" value="{{ old('nama') }}" required>
-                    @if ($errors->has('nama'))
+                    <label for="name" class="col-form-label">Beverage Name <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter beverage's name" name="name"
+                        id="name" value="{{ old('name') }}" required>
+                    @error('name')
                         <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('nama') }}.</strong>
+                            <small>*{!! $message !!}.</small>
                         </span>
-                    @endif
+                    @enderror
                 </div>
 
                 <div class="form-group mb-3">
@@ -52,7 +52,7 @@
                         required>
                     @error('price')
                         <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{!! $message !!}.</strong>
+                            <small>*{!! $message !!}.</small>
                         </span>
                     @enderror
                 </div>
@@ -63,7 +63,7 @@
                         required>
                     @error('quantity')
                         <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{!! $message !!}.</strong>
+                            <small>*{!! $message !!}.</small>
                         </span>
                     @enderror
                 </div>
