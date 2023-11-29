@@ -1,0 +1,26 @@
+// Fonts
+@import url('https://fonts.bunny.net/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+
+// Styles
+body{
+    background-color: $body-bg;
+}
+
+.bg-gr-lb-db{
+    background-image: linear-gradient(to right, $light-blue, $dark-blue);
+}
+
+.bg-light-blue{
+    background-color: $light-blue;
+}
+
+.bg-dark-blue{
+    background-color: $dark-blue;
+}
