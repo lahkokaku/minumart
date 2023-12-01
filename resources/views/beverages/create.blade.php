@@ -6,7 +6,8 @@
             <form action="{{ route('beverages.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="beverage_type_id" class="col-form-label">Beverage Type <span class="text-danger">*</span></label>
+                    <label for="beverage_type_id" class="col-form-label">Beverage Type <span
+                            class="text-danger">*</span></label>
                     <select name="beverage_type_id" class="form-control" id="">
                         <option value="" disabled selected>{{ __('Choose...') }}</option>
                         @foreach ($beverageTypes as $beverageType)
@@ -36,7 +37,8 @@
                 </div>
 
                 <div class="form-group mb-3">
-                    <label for="name" class="col-form-label">Beverage Name <span class="text-danger">*</span></label>
+                    <label for="name" class="col-form-label">Beverage Name <span
+                            class="text-danger">*</span></label>
                     <input type="text" class="form-control" placeholder="Enter beverage's name" name="name"
                         id="name" value="{{ old('name') }}" required>
                     @error('name')
@@ -48,8 +50,8 @@
 
                 <div class="form-group mb-3">
                     <label for="price" class="col-form-label">Price (IDR) <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}" placeholder="Beverage Placeholder"
-                        required>
+                    <input type="number" class="form-control" name="price" id="price" value="{{ old('price') }}"
+                        placeholder="Beverage Placeholder" required>
                     @error('price')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
@@ -59,9 +61,26 @@
 
                 <div class="form-group mb-3">
                     <label for="quantity" class="col-form-label">Quantity <span class="text-danger">*</span></label>
-                    <input type="number" class="form-control" name="quantity" id="quantity" value="{{ old('quantity') }}" placeholder="Beverage Quantity"
-                        required>
+                    <input type="number" class="form-control" name="quantity" id="quantity"
+                        value="{{ old('quantity') }}" placeholder="Beverage Quantity" required>
                     @error('quantity')
+                        <span class="invalid feedback text-danger"role="alert">
+                            <small>*{!! $message !!}.</small>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="photo" class="col-form-label">Photo <span class="text-danger">*</span></label>
+                    <input type="file" class="form-control" name="photo" id="photo"
+                        accept="image/png,image/jpeg,image/jpg">
+                    <small class="text-danger" style="font-size: 0.7em">Type : PNG, JPEG, JPG | Max : 2MB</small><br>
+                    @if ($errors->has('transfer_proof_bank'))
+                        <span class="invalid feedback text-danger"role="alert">
+                            <strong>*{{ $errors->first('transfer_proof_bank') }}.</strong>
+                        </span>
+                    @endif
+                    @error('photo')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
                         </span>
