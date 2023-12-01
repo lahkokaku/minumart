@@ -1,6 +1,6 @@
 import '@popperjs/core';
 import './bootstrap';
-
+import './script.js';
 window.$ = $;
 window.bootstrap = bootstrap;
 

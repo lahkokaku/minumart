@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("name");
             $table->string("address");
             $table->string("open_time");
+            $table->string("photo")->nullable();
             $table->string("closed_time");
             $table->boolean("is_open");
         });

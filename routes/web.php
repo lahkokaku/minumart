@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BeverageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\BeverageOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,17 +20,27 @@ use App\Http\Controllers\Auth\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 Route::get('/login-admin', [LoginController::class, 'showLoginAdmin'])->name('show-login-admin');
 Route::post('/login-admin', [LoginController::class, 'loginAdmin'])->name('login-admin');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Beverage
 Route::resource('beverages', BeverageController::class);
 
 Route::controller(DashboardController::class)->prefix('dashboards')->name('dashboards.')->group(function(){
     Route::get('admin', 'admin')->name('admin');
 });
+
+//Beverage Order 
+Route::get('beverage-orders/finish-order', [BeverageOrderController::class, 'finishOrder'])->name('beverage-orders.finish-order');
+Route::post('beverage-orders/checkout',[BeverageOrderController::class,'checkout'])->name('beverage-orders.checkout');
+
+Route::get('/beverage-orders/{outlet?}', [BeverageOrderController::class, 'index'])->name('beverage-orders.index');
+Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
+
+
+Route::resource('outlets', OutletController::class);

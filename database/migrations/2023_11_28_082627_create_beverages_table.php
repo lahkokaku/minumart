@@ -22,6 +22,7 @@ return new class extends Migration
             $table->double("price");
             $table->double("quantity");
             $table->double("rating");
+            $table->string("photo")->nullable();
 
             $table->foreign('beverage_type_id')->references('id')->on('beverage_types');
             $table->foreign('outlet_id')->references('id')->on('outlets');

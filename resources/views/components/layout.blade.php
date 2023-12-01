@@ -11,6 +11,7 @@
 </head>
     <body>
         <x-alert></x-alert>
+        <x-navbar></x-navbar>
         <main>
             {{ $slot }}
         </main>
