@@ -1,6 +1,6 @@
 @if (count($errors) > 0)
-    <dialog class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-            aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
+            aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content rounded-20 border-0">
                     <div class="modal-header border-bottom-0">
@@ -30,13 +30,12 @@
                     </div>
                 </div>
             </div>
-    </dialog>
+    </div>
 @endif 
 
 @if (session('error'))
-
     <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-        aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content rounded-20 border-0">
                 <div class="modal-header border-bottom-0">
@@ -68,7 +67,7 @@
 @if (session('success'))
     {{-- {{dd('masuk sini')}} --}}
     <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-            aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content rounded-20 border-0">
                     <div class="modal-header border-bottom-0">

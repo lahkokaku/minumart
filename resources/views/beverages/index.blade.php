@@ -28,22 +28,14 @@
                             <td>{{$beverage->quantity}}</td>
                             <td>{{$beverage->price}}</td>
                             <td>{{$beverage->rating}}</td>
-                             
                             <td class="d-flex justify-content-center gap-4"> 
-                                
-                                
-                                <form method="POST" action="{{route('beverages.destroy',$beverage->id)}}">
-                                    @method('DELETE')
-                                    <a  href="#" data-bs-toggle ="modal" data-bs-target="#modal{{$beverage->id}}">
+                                <a  href="#" data-bs-toggle ="modal" data-bs-target="#modal{{$beverage->id}}">
                                     <button class="btn btn-danger rounded btn-sm" title="delete" id ="delete">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
-                                    </a>
-                                    @csrf
-                                </form> 
+                                </a>
                             </td>
                         </tr>
-                        
                     @endforeach
                     </tbody>
                 </table>

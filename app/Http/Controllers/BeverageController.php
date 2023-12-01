@@ -33,9 +33,9 @@ class BeverageController extends Controller
     {
 
         $request->validate([
-            'beverage_type_id' => 'required',
-            'outlet_id' => 'required',
-            'name' => 'required|string',
+            'beverage_type_id' => 'required|numeric',
+            'outlet_id' => 'required|numeric',
+            'name' => 'required|string|min:4',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'photo' => 'required| mimes:png,jpeg,jpg | max:1999'
@@ -84,6 +84,10 @@ class BeverageController extends Controller
     public function destroy($id)
     {
         $beverage = Beverage::find($id);
+
+        if(!$beverage)
+            return redirect()->back()->with('error', "Beverage is not found");
+
         $beverage->delete();
         return redirect()->back()->with('success',"Beverage has been successfuly deleted");
     }
