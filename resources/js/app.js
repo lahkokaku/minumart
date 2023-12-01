@@ -1,7 +1,7 @@
 import '@popperjs/core';
 import './bootstrap';
 import '../sass/app.scss';
-
+import './script.js'
 window.$ = $;
 window.bootstrap = bootstrap;
 

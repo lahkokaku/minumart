@@ -2,14 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Outlet;
 use App\Models\Beverage;
 use App\Models\BeverageType;
-use App\Models\Outlet;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class BeverageController extends Controller
 {
      
+    
     public function index()
     {
         return view('beverages.index',[
@@ -36,7 +38,15 @@ class BeverageController extends Controller
             'name' => 'required|string',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
+            'photo' => 'required| mimes:png,jpeg,jpg | max:1999'
         ]);
+
+        
+        if ($request->hasFile('photo')){
+            $extension = $request->file('photo')->getClientOriginalExtension();
+            $fileName = $request->name . '_' . time() . '.' . $extension;
+            $path = $request->file("photo")->storeAs("public/beverage_photo",$fileName);
+        }
 
         Beverage::create([
             'beverage_type_id' => $request->beverage_type_id, 
@@ -45,6 +55,7 @@ class BeverageController extends Controller
             'price' => $request->price, 
             'quantity' => $request->quantity,
             'rating' => 0 ,
+            'photo' => $fileName
         ]);
 
         return redirect()->route('beverages.index')->with('success', "Beverage has been successfuly created");

@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\BeverageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OutletController;
+use App\Http\Controllers\BeverageController;
+use App\Http\Controllers\BeverageOrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,11 +18,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//Beverage
 Route::resource('beverages', BeverageController::class);
+
+//Beverage Order 
+Route::get('beverage-orders/finish-order', [BeverageOrderController::class, 'finishOrder'])->name('beverage-orders.finish-order');
+Route::post('beverage-orders/checkout',[BeverageOrderController::class,'checkout'])->name('beverage-orders.checkout');
+
+Route::get('/beverage-orders/{outlet?}', [BeverageOrderController::class, 'index'])->name('beverage-orders.index');
+Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
+
+
+Route::resource('outlets', OutletController::class);
