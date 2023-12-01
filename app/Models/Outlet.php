@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Outlet extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'id';
+    protected $table = 'outlets';
     protected $guarded = [];
     
     public function beverages(){
