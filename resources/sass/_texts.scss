@@ -1,0 +1,24 @@
+@import 'variables';
+
+.text-gr-b3-b4{
+    background-image: linear-gradient(to right, $blue-3, $blue-4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    width: fit-content;
+}
+.text-blue-1{
+    color: $blue-1;
+}
+.text-blue-2{
+    color: $blue-2;
+}
+.text-blue-3{
+    color: $blue-3;
+}
+.text-blue-4{
+    color: $blue-4;
+}
+.text-blue-5{
+    color: $blue-5;
+}

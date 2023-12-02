@@ -1,4 +1,4 @@
-<x-layout>
+<x-admin title="Create Beverage">
     <div class="container mt-5">
         <x-card>
             <h3 class="text-uppercase fw-bold display-6 text-gradient mb-4" style="letter-spacing: 0.1em">Create New
@@ -96,4 +96,4 @@
             </form>
         </x-card>
     </div>
-</x-layout>
+</x-admin>
