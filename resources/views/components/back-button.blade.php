@@ -1,0 +1,1 @@
+<a href="{{ $link ? $link :'javascript:history.back' }}"><button class="btn-blue-3">Back</button></a>

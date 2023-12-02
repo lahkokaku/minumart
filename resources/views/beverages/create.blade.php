@@ -1,5 +1,8 @@
 <x-admin title="Create Beverage">
     <div class="container mt-5 py-5">
+        <div class="mb-3">
+            <x-back-button></x-back-button>
+        </div>
         <x-card>
             <h3 class="text-uppercase fw-bold display-6 text-gradient mb-4" style="letter-spacing: 0.1em">Create New
                 Beverages</h3>

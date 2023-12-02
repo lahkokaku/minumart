@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OutletController;
 use App\Http\Controllers\BeverageController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\OutletController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BeverageOrderController;
 
 /*
@@ -42,11 +43,16 @@ Route::controller(DashboardController::class)->prefix('dashboards')->name('dashb
 Route::controller(BeverageOrderController::class)->prefix('beverage-orders')->name('beverage-orders.')->group(function(){
     Route::get('finish-order', 'finishOrder')->name('finish-order');
     Route::post('checkout','checkout')->name('checkout');
-    Route::get('manage', 'manage')->name('manage');
     Route::get('{outlet?}', 'index')->name('index');
-    Route::put('{id}/update-status-admin', 'updateStatusAdmin')->name('update-status-admin');
 });
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
+
+// Transaction
+Route::controller(TransactionController::class)->prefix('transactions')->name('transactions.')->group(function(){
+    Route::get('manage', 'manage')->name('manage');
+    Route::get('{transactionHeader}/detail', 'detail')->name('detail');
+    Route::put('{id}/update-status-admin', 'updateStatusAdmin')->name('update-status-admin');
+});
 
 // Outlet
 Route::resource('outlets', OutletController::class);

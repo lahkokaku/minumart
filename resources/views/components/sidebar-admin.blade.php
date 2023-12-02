@@ -34,7 +34,7 @@
         </a>
         
         <h6 class="mt-3">Orders</h6>
-        <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="{{ route('beverage-orders.manage') }}">
+        <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="{{ route('transactions.manage') }}">
             <span class="rounded rounded-circle bg-blue-3 text-white d-flex justify-center p-2">
                 <i class="fa-solid fa-file-invoice-dollar"></i>
             </span>
