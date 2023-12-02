@@ -53,7 +53,7 @@ class BeverageOrderController extends Controller
             'transaction_date'=> Carbon::now(),
             'total_price' => $request->grand_total,
             'user_id' => !Auth::user() ? 1 : Auth::user()->id,
-            'status' => 1
+            'status' => "1"
         ]);
         for ($i = 0; $i < $len ; $i++){
             $beverage = Beverage::find($id[$i]);
@@ -74,5 +74,41 @@ class BeverageOrderController extends Controller
         return view("beverage-orders.finish-order");
     }
 
+    public function manage(){
+        
+
+        return view('beverage-orders.manage', [
+            "pendingTransactions" => TransactionHeader::where('status', '=', '1')->get(),
+            "makingTransactions" => TransactionHeader::where('status', '=', '2')->get(),
+            "readyTransactions" => TransactionHeader::where('status', '=', '3')->get(),
+            "finishTransactions" => TransactionHeader::where('status', '=', '4')->get()    
+        ]);
+        
+    }
+
+    public function updateStatusAdmin(Request $request, $id){
+
+        $transactionHeader = TransactionHeader::find($id);
+
+        if(!$transactionHeader)
+            return redirect()->back()->with('error', 'Transaction not found');
+
+        $transactionHeader->update([
+            "status" => $request->status
+        ]);
+
+        $message = "";
+
+        if($request->status == 1)
+            $message = "On Check";
+        else if($request->status == 2)
+            $message = "Making";
+        else if($request->status == 3)
+            $message = "Ready for Pick Up";
+        else
+            $message = "Finished";
+
+        return redirect()->route('beverage-orders.manage')->with('success', 'Order has been set to ' . $message);
+    }
     
 }

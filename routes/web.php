@@ -40,11 +40,11 @@ Route::controller(DashboardController::class)->prefix('dashboards')->name('dashb
 
 // Beverage Order 
 Route::controller(BeverageOrderController::class)->prefix('beverage-orders')->name('beverage-orders.')->group(function(){
-    Route::get('beverage-orders/finish-order', 'finishOrder')->name('finish-order');
-    Route::post('beverage-orders/checkout','checkout')->name('checkout');
-    Route::get('beverage-orders/{outlet?}', 'index')->name('index');
-    Route::put('beverage-orders/manage')->name('manage');
-    Route::put('beverage-orders/{id}/update-status-admin')->name('update-status-admin');
+    Route::get('finish-order', 'finishOrder')->name('finish-order');
+    Route::post('checkout','checkout')->name('checkout');
+    Route::get('manage', 'manage')->name('manage');
+    Route::get('{outlet?}', 'index')->name('index');
+    Route::put('{id}/update-status-admin', 'updateStatusAdmin')->name('update-status-admin');
 });
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
 

@@ -21,7 +21,7 @@ class TransactionHeader extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function transcationDetail(){
+    public function transactionDetail(){
         return $this->hasMany(TransactionDetail::class);
     }
    
