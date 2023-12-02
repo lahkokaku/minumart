@@ -1,6 +1,16 @@
 <nav class="navbar navbar-expand-lg fixed-top shadow-sm text-black bg-white" style="font-family: 'Lexend', sans-serif;">
     <div class="container" style="opacity: 100% !important;">
         <div class="d-inline-block py-2">
+            @if (Auth::guard('admin')->user())    
+                <a class="text-blue-4 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasAdmin" role="button" aria-controls="offcanvasAdmin">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            @endif
+            @if (Auth::guard('web')->user())    
+                <a class="text-blue-4 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasUser" role="button" aria-controls="offcanvasUser">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            @endif
             <a class="navbar-brand" href="/">
                 <img src="/storage/assets/ThemeLogoHorizontal.png" alt="" height="40">
             </a>

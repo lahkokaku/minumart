@@ -23,24 +23,27 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Auth
 Auth::routes();
 Route::get('/login-admin', [LoginController::class, 'showLoginAdmin'])->name('show-login-admin');
 Route::post('/login-admin', [LoginController::class, 'loginAdmin'])->name('login-admin');
 
 
-//Beverage
+// Beverage
 Route::resource('beverages', BeverageController::class);
 
+// Dashboard
 Route::controller(DashboardController::class)->prefix('dashboards')->name('dashboards.')->group(function(){
+    Route::get('user', 'user')->name('user');
     Route::get('admin', 'admin')->name('admin');
 });
 
-//Beverage Order 
+// Beverage Order 
 Route::get('beverage-orders/finish-order', [BeverageOrderController::class, 'finishOrder'])->name('beverage-orders.finish-order');
 Route::post('beverage-orders/checkout',[BeverageOrderController::class,'checkout'])->name('beverage-orders.checkout');
 
 Route::get('/beverage-orders/{outlet?}', [BeverageOrderController::class, 'index'])->name('beverage-orders.index');
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
 
-
+// Outlet
 Route::resource('outlets', OutletController::class);
