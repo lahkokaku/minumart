@@ -2,7 +2,7 @@
     <div class="container mt-5 py-5">
         <x-card>
             <h3 class="text-uppercase fw-bold  text-gradient mb-4" style="letter-spacing: 0.1em">beverages List </h3>
-            <a href="{{route('beverages.create')}}" class="btn btn-primary mb-3">Add New beverages</a>
+            <a href="{{route('beverages.create')}}" class="btn btn-blue-3 mb-3">Add New beverages</a>
             @if ($beverages->count())
             <div class="table-responsive py-2">
                 <table class="table table-striped table-bordered" id="dataTables">
