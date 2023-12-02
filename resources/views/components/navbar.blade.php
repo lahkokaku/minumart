@@ -2,12 +2,12 @@
     <div class="container" style="opacity: 100% !important;">
         <div class="d-inline-block py-2">
             @if (Auth::guard('admin')->user())    
-                <a class="text-blue-4 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasAdmin" role="button" aria-controls="offcanvasAdmin">
+                <a class="text-blue-4 fs-5 me-2 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasAdmin" role="button" aria-controls="offcanvasAdmin">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             @endif
             @if (Auth::guard('web')->user())    
-                <a class="text-blue-4 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasUser" role="button" aria-controls="offcanvasUser">
+                <a class="text-blue-4 fs-5 me-2 text-decoration-none" data-bs-toggle="offcanvas" href="#offcanvasUser" role="button" aria-controls="offcanvasUser">
                     <i class="fa-solid fa-bars"></i>
                 </a>
             @endif

@@ -15,9 +15,11 @@ return new class extends Migration
     {
         /**
          * Status
-         * 1 -> Pending
-         * 2 -> Ready
-         * 3 -> Picked Up
+         * 0 -> Rejected
+         * 1 -> On Check
+         * 2 -> Making
+         * 3 -> Ready
+         * 4 -> Picked Up
          */
 
         Schema::create('transaction_headers', function (Blueprint $table) {
@@ -25,7 +27,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string("transaction_date");
             $table->double("total_price");
-            $table->enum("status", [1, 2, 3]);
+            $table->enum("status", [0, 1, 2, 3]);
             $table->date("picked_time")->nullable();
             $table->unsignedBigInteger("admin_id")->nullable();
             $table->unsignedBigInteger("user_id");

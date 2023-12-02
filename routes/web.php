@@ -39,10 +39,13 @@ Route::controller(DashboardController::class)->prefix('dashboards')->name('dashb
 });
 
 // Beverage Order 
-Route::get('beverage-orders/finish-order', [BeverageOrderController::class, 'finishOrder'])->name('beverage-orders.finish-order');
-Route::post('beverage-orders/checkout',[BeverageOrderController::class,'checkout'])->name('beverage-orders.checkout');
-
-Route::get('/beverage-orders/{outlet?}', [BeverageOrderController::class, 'index'])->name('beverage-orders.index');
+Route::controller(BeverageOrderController::class)->prefix('beverage-orders')->name('beverage-orders.')->group(function(){
+    Route::get('beverage-orders/finish-order', 'finishOrder')->name('finish-order');
+    Route::post('beverage-orders/checkout','checkout')->name('checkout');
+    Route::get('beverage-orders/{outlet?}', 'index')->name('index');
+    Route::put('beverage-orders/manage')->name('manage');
+    Route::put('beverage-orders/{id}/update-status-admin')->name('update-status-admin');
+});
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
 
 // Outlet
