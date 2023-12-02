@@ -52,9 +52,8 @@ class BeverageOrderController extends Controller
         $transactionHeader = TransactionHeader::create([
             'transaction_date'=> Carbon::now(),
             'total_price' => $request->grand_total,
-            'admin_id' => 1,
-            'user_id' => 1
-            // 'user_id' => !Auth::user() ? 1 : Auth::user()->id,
+            'user_id' => !Auth::user() ? 1 : Auth::user()->id,
+            'status' => 1
         ]);
         for ($i = 0; $i < $len ; $i++){
             $beverage = Beverage::find($id[$i]);
