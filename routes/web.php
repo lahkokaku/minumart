@@ -31,6 +31,7 @@ Route::post('/login-admin', [LoginController::class, 'loginAdmin'])->name('login
 
 
 // Beverage
+Route::put('beverages/{id}/quantity', [BeverageController::class, 'updateQuantity'])->name('beverages.update-quantity');
 Route::resource('beverages', BeverageController::class);
 
 // Dashboard
