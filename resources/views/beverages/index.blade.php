@@ -38,19 +38,19 @@
                             </td>
                             <td>{{$beverage->price}}</td>
                             <td>{{$beverage->rating}}</td>
-                            <td class="d-flex justify-content-center gap-2 h-100 align-items-center"> 
+                            <td> 
                                 <a  href="{{ env('APP_URL') . '/storage/beverage_photo/' . $beverage->photo }}" target="_blank">
-                                    <button class="btn btn-primary rounded btn-sm" title="delete" id ="delete">
+                                    <button class="btn btn-primary rounded btn-sm" title="Photo" id ="Photo">
                                         <i class="fa-solid fa-image"></i>
                                     </button>
                                 </a>
                                 <a  href="{{ route('beverages.edit', $beverage->id) }}">
-                                    <button class="btn btn-primary rounded btn-sm" title="delete" id ="delete">
+                                    <button class="btn btn-primary rounded btn-sm" title="Edit" id ="Edit">
                                         <i class="fa-solid fa-pen"></i>
                                     </button>
                                 </a>
                                 <a  href="#" data-bs-toggle ="modal" data-bs-target="#modal{{$beverage->id}}">
-                                    <button class="btn btn-danger rounded btn-sm" title="delete" id ="delete">
+                                    <button class="btn btn-danger rounded btn-sm" title="Delete" id ="Delete">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </a>
