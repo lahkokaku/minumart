@@ -21,6 +21,7 @@ class TransactionSeeder extends Seeder
             "total_price" => 40000,
             "status" => "1",
             "transaction_date" => Carbon::createFromDate(2023, 9, 1),
+            "created_at" => Carbon::createFromDate(2023, 12, 1)
         ]);
         DB::table('transaction_details')->insert([
             "transaction_header_id" => 1,

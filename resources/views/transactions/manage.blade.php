@@ -12,6 +12,7 @@
                         <th scope="col">Customer</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col">Issued On</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -22,6 +23,7 @@
                             <th>{{$pendingTransaction->user->name}}</th>
                             <td>{{$pendingTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($pendingTransaction->total_price)}}</td>
+                            <td>{{$pendingTransaction->created_at}}</td>
                             <td class="d-flex justify-content-center gap-2">
                                 <a href="{{ route('transactions.detail', $pendingTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">

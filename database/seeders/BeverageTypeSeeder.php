@@ -17,7 +17,7 @@ class BeverageTypeSeeder extends Seeder
     public function run()
     {
 
-        $names = ['Coffee', 'Tea', 'Milk', 'Milk Tea', 'Milk Coffee'];
+        $names = ['Coffee', 'Tea', 'Milk', 'Milk Tea', 'Milk Coffee', 'Others'];
         $len = count($names);
 
         for($i = 0; $i < $len; $i++){
