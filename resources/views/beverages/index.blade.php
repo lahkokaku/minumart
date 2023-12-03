@@ -1,7 +1,7 @@
 <x-admin title="Manage Beverage">
     <div class="container mt-5 py-5">
         <x-card>
-            <h3 class="text-uppercase fw-bold  text-gradient mb-4" style="letter-spacing: 0.1em">beverages List </h3>
+            <h3 class="text-uppercase fw-bold text-blue-4 mb-4" style="letter-spacing: 0.1em">beverages List </h3>
             <a href="{{route('beverages.create')}}" class="btn btn-blue-3 mb-3">Add New beverages</a>
             @if ($beverages->count())
             <div>
