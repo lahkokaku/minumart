@@ -14,5 +14,12 @@ $(document).ready(function(){
 
 // DataTable
 $(document).ready(function(){
-    $('#dataTables').DataTable();
+    $('#dataTables').DataTable({
+        processing: true,
+        pageLength: 5,
+        lengthMenu: [
+            [5, 10, -1],
+            [5, 10, 'All']
+        ],
+    });
 });
