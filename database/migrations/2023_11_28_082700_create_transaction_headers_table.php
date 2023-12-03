@@ -25,10 +25,10 @@ return new class extends Migration
         Schema::create('transaction_headers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->date("transaction_date");
+            $table->dateTime("transaction_date");
             $table->double("total_price");
             $table->enum("status", [0, 1, 2, 3, 4]);
-            $table->date("picked_time")->nullable();
+            $table->dateTime("picked_time")->nullable();
             $table->unsignedBigInteger("admin_id")->nullable();
             $table->unsignedBigInteger("user_id");
 
