@@ -8,6 +8,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BeverageOrderController;
+use App\Http\Controllers\BeverageTypeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Auth::routes();
 Route::get('/login-admin', [LoginController::class, 'showLoginAdmin'])->name('show-login-admin');
 Route::post('/login-admin', [LoginController::class, 'loginAdmin'])->name('login-admin');
 
+// Beverage Type
+Route::resource('beverage-types', BeverageTypeController::class);
 
 // Beverage
 Route::put('beverages/{id}/quantity', [BeverageController::class, 'updateQuantity'])->name('beverages.update-quantity');
@@ -56,4 +59,6 @@ Route::controller(TransactionController::class)->prefix('transactions')->name('t
 });
 
 // Outlet
+Route::get('outlets/manage',[OutletController::class, 'manage'])->name('outlets.manage');
+Route::get('outlets/{id}/update-status',[OutletController::class, 'updateStatus'])->name('outlets.update-status');
 Route::resource('outlets', OutletController::class);
