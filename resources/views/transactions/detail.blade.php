@@ -13,7 +13,10 @@
                 <div class="fs-6">Customer Email: <span class="fw-bold">{{ $transactionHeader->user->email }}</span></div>
                 <div class="fs-6">Customer Phone Number: <span class="fw-bold">{{ $transactionHeader->user->phone_number }}</span></div>
             </div>
-            <div>Order Issued On: {{ $transactionHeader->created_at }}</div>
+            <div>Order Issued On: {{ $transactionHeader->transaction_date }}</div>
+            @if ($transactionHeader->picked_time)
+                <div>Picked Up On: {{ $transactionHeader->picked_time }}</div>
+            @endif
             <div>
                 <div class="fw-bold fs-5">
                     <span class="">Status: </span>

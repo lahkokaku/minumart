@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TransactionHeader;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -67,6 +68,16 @@ class TransactionController extends Controller
             $message = "Ready for Pick Up";
         else
             $message = "Finished";
+        
+        if($request->status == 4){
+            $transactionHeader->update([
+                "picked_time" => Carbon::now()
+            ]);
+        }else{
+            $transactionHeader->update([
+                "picked_time" => null
+            ]);
+        }
 
         return redirect()->back()->with('success', 'Order has been set to ' . $message);
     }

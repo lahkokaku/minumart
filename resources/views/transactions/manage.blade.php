@@ -23,7 +23,7 @@
                             <th>{{$pendingTransaction->user->name}}</th>
                             <td>{{$pendingTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($pendingTransaction->total_price)}}</td>
-                            <td>{{$pendingTransaction->created_at}}</td>
+                            <td>{{$pendingTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
                                 <a href="{{ route('transactions.detail', $pendingTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
@@ -59,6 +59,7 @@
                         <th scope="col">Customer</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col">Issued On</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -69,6 +70,7 @@
                             <th>{{$makingTransaction->user->name}}</th>
                             <td>{{$makingTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($makingTransaction->total_price)}}</td>
+                            <td>{{$makingTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
                                 <a href="{{ route('transactions.detail', $makingTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
@@ -112,6 +114,7 @@
                         <th scope="col">Customer</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
+                        <th scope="col">Issued On</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
@@ -122,6 +125,7 @@
                             <th>{{$readyTransaction->user->name}}</th>
                             <td>{{$readyTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($readyTransaction->total_price)}}</td>
+                            <td>{{$readyTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
                                 <a href="{{ route('transactions.detail', $readyTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
@@ -162,11 +166,13 @@
                     <thead class="text-center">
                         <tr>
                             <th scope="col">ID</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Outlet</th>
-                        <th scope="col">Total Price</th>
-                        <th scope="col">Action</th>
-                    </tr>
+                            <th scope="col">Customer</th>
+                            <th scope="col">Outlet</th>
+                            <th scope="col">Total Price</th>
+                            <th scope="col">Issued On</th>
+                            <th scope="col">Picked Up On</th>
+                            <th scope="col">Action</th>
+                        </tr>
                 </thead>
                     <tbody class="text-center">
                         @foreach ($finishTransactions as $finishTransaction)
@@ -175,6 +181,8 @@
                             <th>{{$finishTransaction->user->name}}</th>
                             <td>{{$finishTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($finishTransaction->total_price)}}</td>
+                            <td>{{$finishTransaction->transaction_date}}</td>
+                            <td>{{$finishTransaction->picked_time}}</td>
                             <td class="d-flex justify-content-center gap-2"> 
                                 <a href="{{ route('transactions.detail', $finishTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
