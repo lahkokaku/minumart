@@ -4,6 +4,9 @@
             <h3 class="text-uppercase fw-bold  text-gradient mb-4" style="letter-spacing: 0.1em">beverages List </h3>
             <a href="{{route('beverages.create')}}" class="btn btn-blue-3 mb-3">Add New beverages</a>
             @if ($beverages->count())
+            <div>
+                <small>Press 'Enter' to save the quantity after changing it</small>
+            </div>
             <div class="table-responsive py-2">
                 <table class="table table-striped table-bordered" id="dataTables">
                     <thead class="text-center">
@@ -12,7 +15,7 @@
                         <th scope="col">Type</th>
                         <th scope="col">Name</th>
                         <th scope="col">Outlet</th>
-                        <th scope="col">Quantity</th>
+                        <th scope="col" class="col-1">Quantity</th>
                         <th scope="col">Price</th>
                         <th scope="col">Rating</th>
                         <th scope="col">Action</th>
@@ -22,13 +25,30 @@
                     @foreach ($beverages as $beverage)
                         <tr>
                             <th>{{$beverage->id}}</th>
-                            <th>{{$beverage->beverageType->name}}</th>
-                            <td>{{$beverage->name}}</td>
+                            <td>{{$beverage->beverageType->name}}</td>
+                            <th>{{$beverage->name}}</th>
                             <td>{{$beverage->outlet->name}}</td>
-                            <td>{{$beverage->quantity}}</td>
+                            <td>
+                                <form action="{{ route('beverages.update-quantity', $beverage->id) }}" enctype="multipart/form-data" method="POST">
+                                    @csrf
+                                    @method('PUT')
+                                    <input type="number" value="{{ $beverage->quantity }}" name="quantity" class="form-control h-50">
+                                    <button type="submit" hidden></button>
+                                </form>
+                            </td>
                             <td>{{$beverage->price}}</td>
                             <td>{{$beverage->rating}}</td>
-                            <td class="d-flex justify-content-center gap-4"> 
+                            <td class="d-flex justify-content-center gap-2 h-100 align-items-center"> 
+                                <a  href="{{ env('APP_URL') . '/storage/beverage_photo/' . $beverage->photo }}" target="_blank">
+                                    <button class="btn btn-primary rounded btn-sm" title="delete" id ="delete">
+                                        <i class="fa-solid fa-image"></i>
+                                    </button>
+                                </a>
+                                <a  href="{{ route('beverages.edit', $beverage->id) }}">
+                                    <button class="btn btn-primary rounded btn-sm" title="delete" id ="delete">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                </a>
                                 <a  href="#" data-bs-toggle ="modal" data-bs-target="#modal{{$beverage->id}}">
                                     <button class="btn btn-danger rounded btn-sm" title="delete" id ="delete">
                                         <i class="fa-solid fa-trash"></i>
