@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -24,8 +25,8 @@ class OutletSeeder extends Seeder
             DB::table("outlets")->insert([
                 "name" => $names[$i],
                 "address" => $addresses[$i],
-                "open_time" => '09:00',
-                "closed_time" => '21:00',
+                "open_time" => Carbon::createFromTime(9, 0, 0),
+                "closed_time" => Carbon::createFromTime(21, 0, 0),
                 "is_open" => true,
             ]);
         }

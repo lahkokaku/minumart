@@ -36,7 +36,7 @@
                 <div class="form-group mb-3">
                     <label for="open_time" class="col-form-label">Open Time <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="open_time" id="open_time" value="{{ old('open_time') }}"
-                        placeholder="HH:MM" required>
+                        placeholder="HH:MM:SS" required>
                     @error('open_time')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
@@ -47,7 +47,7 @@
                 <div class="form-group mb-3">
                     <label for="closed_time" class="col-form-label">Closed Time <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="closed_time" id="closed_time" value="{{ old('closed_time') }}"
-                        placeholder="HH:MM" required>
+                        placeholder="HH:MM:SS" required>
                     @error('closed_time')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
