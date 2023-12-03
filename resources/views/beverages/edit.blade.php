@@ -4,7 +4,7 @@
             <x-back-button link="{{ route('beverages.index') }}"></x-back-button>
         </div>
         <x-card>
-            <h3 class="text-uppercase fw-bold display-6 text-gradient mb-4" style="letter-spacing: 0.1em">Edit Beverage: {{ $beverage->id }}</h3>
+            <h3 class="text-uppercase fw-bold text-blue-4 mb-4" style="letter-spacing: 0.1em">Edit Beverage: {{ $beverage->id }}</h3>
             <form action="{{ route('beverages.update', $beverage->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -89,8 +89,6 @@
                 </div>
 
                 <div class="row">
-                    <div class="col"><a href="{{ route('beverages.index') }}"
-                            class="btn btn-outline-dark w-100 rounded-pill">Back</a></div>
                     <div class="col"><button type="submit"
                             class="btn w-100 rounded-pill btn-outline-primary">Submit</button></div>
                 </div>
