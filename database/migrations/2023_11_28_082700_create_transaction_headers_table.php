@@ -31,7 +31,9 @@ return new class extends Migration
             $table->dateTime("picked_time")->nullable();
             $table->unsignedBigInteger("admin_id")->nullable();
             $table->unsignedBigInteger("payment_provider_id");
-            $table->string("payment_proof")->nullable();
+            $table->string("account_name");
+            $table->string("account_number");
+            $table->string("payment_proof");
             $table->unsignedBigInteger("user_id");
 
             $table->foreign('user_id')->references('id')->on('users');

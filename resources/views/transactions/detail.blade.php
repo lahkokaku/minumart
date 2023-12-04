@@ -12,6 +12,8 @@
                 <div class="fs-6">Customer Name: <span class="fw-bold">{{ $transactionHeader->user->name }}</span></div>
                 <div class="fs-6">Customer Email: <span class="fw-bold">{{ $transactionHeader->user->email }}</span></div>
                 <div class="fs-6">Customer Phone Number: <span class="fw-bold">{{ $transactionHeader->user->phone_number }}</span></div>
+                <div class="fs-6">Customer Account Name: <span class="fw-bold">{{ $transactionHeader->account_name }}</span></div>
+                <div class="fs-6">Customer Account Number: <span class="fw-bold">{{ $transactionHeader->account_number }}</span></div>
             </div>
             <div>Order Issued On: <span class="fw-bold">{{ $transactionHeader->transaction_date }}</span></div>
             <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $transactionHeader->payment_proof }}" target="_blank">
