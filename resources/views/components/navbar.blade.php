@@ -23,7 +23,7 @@
             <div class="d-flex w-100 justify-content-end gap-2">
                 @if (!Auth::guard('admin')->user())    
                     <div class="nav-item">
-                        <a href="" class="btn btn-gr-b3-b4">Order</a>
+                        <a href="{{ route('outlets.index') }}" class="btn btn-gr-b3-b4">Order</a>
                     </div>
                     <div class="nav-item bg-blue-4 mx-1" style="width: 2px;"></div>
                 @endif

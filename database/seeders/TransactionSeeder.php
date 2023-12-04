@@ -21,6 +21,8 @@ class TransactionSeeder extends Seeder
             "total_price" => 40000,
             "status" => "1",
             "transaction_date" => Carbon::now(),
+            "payment_provider_id" => 3,
+            "payment_proof" => 'dummy_proof.png',
         ]);
         DB::table('transaction_details')->insert([
             "transaction_header_id" => 1,

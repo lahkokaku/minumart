@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BeverageOrderController;
 use App\Http\Controllers\BeverageTypeController;
+use App\Http\Controllers\PaymentProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::controller(BeverageOrderController::class)->prefix('beverage-orders')->na
     Route::get('{outlet?}', 'index')->name('index');
 });
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
+
+// Payment Provider
+Route::resource('payment-providers', PaymentProviderController::class);
 
 // Transaction
 Route::controller(TransactionController::class)->prefix('transactions')->name('transactions.')->group(function(){
