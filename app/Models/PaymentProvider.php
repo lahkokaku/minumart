@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PaymentProvider extends Model
 {
     use HasFactory;
+    public $fillable = [
+        'type',
+        'name',
+    ];
 
     public function transactionHeader(){
         return $this->hasMany(TransactionHeader::class);
