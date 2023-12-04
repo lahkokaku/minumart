@@ -51,6 +51,8 @@ class BeverageOrderController extends Controller
         $quantity = explode(',', $request->quantity);
 
         $request->validate([
+            'account_name' => 'required|string',
+            'account_number' => 'required|string',
             'payment_provider_id' => 'required|numeric',
             'payment_proof' => 'required|mimes:jpg,jpeg,png|max:3000'
         ]);
@@ -68,6 +70,8 @@ class BeverageOrderController extends Controller
             'user_id' => !Auth::user() ? 1 : Auth::user()->id,
             'status' => "1",
             'payment_provider_id' => $request->payment_provider_id,
+            'account_name' => $request->account_name,
+            'account_number' => $request->account_number,
             'payment_proof' => $fileName,
         ]);
         for ($i = 0; $i < $len ; $i++){

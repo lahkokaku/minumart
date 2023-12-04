@@ -10,6 +10,8 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Customer</th>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Account Number</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
                         <th scope="col">Issued On</th>
@@ -21,6 +23,8 @@
                         <tr>
                             <th>{{$pendingTransaction->id}}</th>
                             <th>{{$pendingTransaction->user->name}}</th>
+                            <td>{{$pendingTransaction->account_name}}</td>
+                            <th>{{$pendingTransaction->account_number}}</th>
                             <td>{{$pendingTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($pendingTransaction->total_price)}}</td>
                             <td>{{$pendingTransaction->transaction_date}}</td>
@@ -62,6 +66,8 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Customer</th>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Account Number</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
                         <th scope="col">Issued On</th>
@@ -73,6 +79,8 @@
                         <tr>
                             <th>{{$makingTransaction->id}}</th>
                             <th>{{$makingTransaction->user->name}}</th>
+                            <td>{{$makingTransaction->account_name}}</td>
+                            <th>{{$makingTransaction->account_number}}</th>
                             <td>{{$makingTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($makingTransaction->total_price)}}</td>
                             <td>{{$makingTransaction->transaction_date}}</td>
@@ -122,6 +130,8 @@
                     <tr>
                         <th scope="col">ID</th>
                         <th scope="col">Customer</th>
+                        <th scope="col">Account Name</th>
+                        <th scope="col">Account Number</th>
                         <th scope="col">Outlet</th>
                         <th scope="col">Total Price</th>
                         <th scope="col">Issued On</th>
@@ -133,6 +143,8 @@
                         <tr>
                             <th>{{$readyTransaction->id}}</th>
                             <th>{{$readyTransaction->user->name}}</th>
+                            <td>{{$readyTransaction->account_name}}</td>
+                            <th>{{$readyTransaction->account_number}}</th>
                             <td>{{$readyTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($readyTransaction->total_price)}}</td>
                             <td>{{$readyTransaction->transaction_date}}</td>
@@ -182,6 +194,8 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Customer</th>
+                            <th scope="col">Account Name</th>
+                            <th scope="col">Account Number</th>
                             <th scope="col">Outlet</th>
                             <th scope="col">Total Price</th>
                             <th scope="col">Issued On</th>
@@ -194,6 +208,8 @@
                         <tr>
                             <th>{{$finishTransaction->id}}</th>
                             <th>{{$finishTransaction->user->name}}</th>
+                            <td>{{$finishTransaction->account_name}}</td>
+                            <th>{{$finishTransaction->account_number}}</th>
                             <td>{{$finishTransaction->transactionDetail[0]->beverage->outlet->name}}</td>
                             <td>{{'Rp. ' . number_format($finishTransaction->total_price)}}</td>
                             <td>{{$finishTransaction->transaction_date}}</td>

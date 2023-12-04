@@ -64,6 +64,27 @@
                             <h4>542799841 (BCA)</h4>
                             <div>Account Name: <span class="fw-bold">MINUMART</span></div>
                         </div>
+
+                        <div class="form-group mt-3">
+                            <label for="account_name" class="form-label">{{ __('Account Name') }}<span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control" name="account_name" value="{{ old('account_name') }}" placeholder="Your Account Name">
+                            @error('account_name')
+                                <span class="invalid feedback text-danger" role="alert">
+                                    <small>*{!! $message !!}.</small>
+                                </span>
+                            @enderror
+                        </div>
+
+                        <div class="form-group mt-3">
+                            <label for="account_number" class="form-label">{{ __('Account Number') }}<span class="text-danger"> *</span></label>
+                            <input type="text" class="form-control" name="account_number" value="{{ old('account_number') }}" placeholder="Your Account Number">
+                            @error('account_number')
+                                <span class="invalid feedback text-danger" role="alert">
+                                    <small>*{!! $message !!}.</small>
+                                </span>
+                            @enderror
+                        </div>
+
                         <div class="form-group mt-3">
                             <label for="payment_provider_id" class="form-label">{{ __('Payment Provider') }}<span class="text-danger"> *</span></label>
                             <select name="payment_provider_id" class="form-select" id="payment_provider_id">
