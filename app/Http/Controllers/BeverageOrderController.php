@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\Outlet;
 use App\Models\Beverage;
+use App\Models\PaymentProvider;
 use Illuminate\Http\Request;
 use App\Models\TransactionDetail;
 use App\Models\TransactionHeader;
@@ -28,7 +29,7 @@ class BeverageOrderController extends Controller
     public function store(Request $request){
         $id = explode(",",$request->id);
         $quantity = explode(",",$request->quantity);
-        
+
         // dd($id);
         // $len = count($id);
         // for ($i = 0; $i < $len; $i++) {
@@ -41,6 +42,7 @@ class BeverageOrderController extends Controller
             'outlet' => Outlet::find($request->outlet_id),
             'beverages' => Beverage::all(),
             'grandTotal' => $request->grand_total,
+            'paymentProviders' => PaymentProvider::all()
         ]);
     }
 
@@ -48,12 +50,25 @@ class BeverageOrderController extends Controller
         $id = explode(',', $request->beverage_id);
         $quantity = explode(',', $request->quantity);
 
+        $request->validate([
+            'payment_provider_id' => 'required|numeric',
+            'payment_proof' => 'required|mimes:jpg,jpeg,png|max:3000'
+        ]);
+
+        if ($request->hasFile('payment_proof')){
+            $extension = $request->file('payment_proof')->getClientOriginalExtension();
+            $fileName = Auth::guard('web')->user()->name . '_' . time() . '.' . $extension;
+            $path = $request->file("payment_proof")->storeAs("public/payment_proof",$fileName);
+        }
+
         $len= count($id);
         $transactionHeader = TransactionHeader::create([
             'transaction_date'=> Carbon::now(),
             'total_price' => $request->grand_total,
             'user_id' => !Auth::user() ? 1 : Auth::user()->id,
-            'status' => "1"
+            'status' => "1",
+            'payment_provider_id' => $request->payment_provider_id,
+            'payment_proof' => $fileName,
         ]);
         for ($i = 0; $i < $len ; $i++){
             $beverage = Beverage::find($id[$i]);

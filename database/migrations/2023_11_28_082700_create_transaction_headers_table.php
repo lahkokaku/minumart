@@ -30,10 +30,13 @@ return new class extends Migration
             $table->enum("status", [0, 1, 2, 3, 4]);
             $table->dateTime("picked_time")->nullable();
             $table->unsignedBigInteger("admin_id")->nullable();
+            $table->unsignedBigInteger("payment_provider_id");
+            $table->string("payment_proof")->nullable();
             $table->unsignedBigInteger("user_id");
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('admin_id')->references('id')->on('admins');
+            $table->foreign('payment_provider_id')->references('id')->on('payment_providers');
         });
     }
 

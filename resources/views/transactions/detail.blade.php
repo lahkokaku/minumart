@@ -13,7 +13,12 @@
                 <div class="fs-6">Customer Email: <span class="fw-bold">{{ $transactionHeader->user->email }}</span></div>
                 <div class="fs-6">Customer Phone Number: <span class="fw-bold">{{ $transactionHeader->user->phone_number }}</span></div>
             </div>
-            <div>Order Issued On: {{ $transactionHeader->transaction_date }}</div>
+            <div>Order Issued On: <span class="fw-bold">{{ $transactionHeader->transaction_date }}</span></div>
+            <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $transactionHeader->payment_proof }}" target="_blank">
+                <button class="btn btn-blue-3 btn-sm" title="View Payment Proof">
+                    View Payment Proof
+                </button>
+            </a>
             @if ($transactionHeader->picked_time)
                 <div>Picked Up On: {{ $transactionHeader->picked_time }}</div>
             @endif

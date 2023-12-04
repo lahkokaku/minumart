@@ -1,4 +1,4 @@
-<x-layout>
+<x-guest title="Beverage Catalog">
     <div class="container mt-5">
         @foreach ($beverages as $beverage)
             <x-card-beverage>

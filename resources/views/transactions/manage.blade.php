@@ -25,6 +25,11 @@
                             <td>{{'Rp. ' . number_format($pendingTransaction->total_price)}}</td>
                             <td>{{$pendingTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
+                                <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $pendingTransaction->payment_proof }}" target="_blank">
+                                    <button class="btn btn-primary rounded btn-sm" title="View Payment Proof">
+                                        <i class="fa-solid fa-receipt"></i>
+                                    </button>
+                                </a>
                                 <a href="{{ route('transactions.detail', $pendingTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
                                         <i class="fa-solid fa-list"></i>
@@ -72,6 +77,11 @@
                             <td>{{'Rp. ' . number_format($makingTransaction->total_price)}}</td>
                             <td>{{$makingTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
+                                <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $makingTransaction->payment_proof }}" target="_blank">
+                                    <button class="btn btn-primary rounded btn-sm" title="View Payment Proof">
+                                        <i class="fa-solid fa-receipt"></i>
+                                    </button>
+                                </a>
                                 <a href="{{ route('transactions.detail', $makingTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
                                         <i class="fa-solid fa-list"></i>
@@ -127,6 +137,11 @@
                             <td>{{'Rp. ' . number_format($readyTransaction->total_price)}}</td>
                             <td>{{$readyTransaction->transaction_date}}</td>
                             <td class="d-flex justify-content-center gap-2">
+                                <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $readyTransaction->payment_proof }}" target="_blank">
+                                    <button class="btn btn-primary rounded btn-sm" title="View Payment Proof">
+                                        <i class="fa-solid fa-receipt"></i>
+                                    </button>
+                                </a>
                                 <a href="{{ route('transactions.detail', $readyTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
                                         <i class="fa-solid fa-list"></i>
@@ -183,7 +198,12 @@
                             <td>{{'Rp. ' . number_format($finishTransaction->total_price)}}</td>
                             <td>{{$finishTransaction->transaction_date}}</td>
                             <td>{{$finishTransaction->picked_time}}</td>
-                            <td class="d-flex justify-content-center gap-2"> 
+                            <td class="d-flex justify-content-center gap-2">
+                                <a href="{{ env('APP_URL') . '/storage/payment_proof/' . $finishTransaction->payment_proof }}" target="_blank">
+                                    <button class="btn btn-info rounded btn-sm" title="View Payment Proof">
+                                        <i class="fa-solid fa-receipt"></i>
+                                    </button>
+                                </a>
                                 <a href="{{ route('transactions.detail', $finishTransaction) }}" rel="noopener noreferrer">
                                     <button class="btn btn-dark rounded btn-sm" title="View Details">
                                         <i class="fa-solid fa-list"></i>
