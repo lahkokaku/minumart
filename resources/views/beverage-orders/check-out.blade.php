@@ -51,8 +51,9 @@
 
             <div class="col-md-12">
                 <x-card>
-                    <form action="{{route("beverage-orders.checkout")}}" enctype="multipart/form-data" method="POST">
+                    <form action="{{ route('beverage-orders.checkout') }}" enctype="multipart/form-data" method="POST">
                         @csrf
+                        @method('POST')
                         <input type="text" hidden name="beverage_id" value="{{implode(",",$id)}}">
                         <input type="text" hidden name="outlet_id" value="{{$outlet->id}}">
                         <input type="text" hidden name="quantity" value="{{implode(",",$quantity)}}">

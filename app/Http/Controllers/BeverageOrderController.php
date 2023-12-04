@@ -46,7 +46,7 @@ class BeverageOrderController extends Controller
         ]);
     }
 
-    public function checkout( Request $request){
+    public function checkout(Request $request){
         $id = explode(',', $request->beverage_id);
         $quantity = explode(',', $request->quantity);
 
@@ -81,6 +81,9 @@ class BeverageOrderController extends Controller
                 'beverage_id' => $beverage->id,
                 'quantity' => $quantity[$i],
                 'total_price' => $beverage->price * $quantity[$i]
+            ]);
+            $beverage->update([
+                'quantity' => $beverage->quantity - 1
             ]);
         }
 
