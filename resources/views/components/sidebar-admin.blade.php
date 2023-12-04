@@ -19,6 +19,14 @@
             <span class="ms-2 text-black">Admin Dashboard</span>
         </a>
         
+        <h6 class="mt-3">Payment</h6>
+        <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="{{ route('payment-providers.index') }}">
+            <span class="rounded rounded-circle bg-blue-3 text-white d-flex justify-center p-2">
+                <i class="fa-solid fa-sack-dollar"></i>
+            </span>
+            <span class="ms-2 text-black">Payment Providers</span>
+        </a>
+
         <h6 class="mt-3">Management</h6>
         <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="{{ route('outlets.manage') }}">
             <span class="rounded rounded-circle bg-blue-3 text-white d-flex justify-center p-2">
