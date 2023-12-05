@@ -18,8 +18,6 @@
     <body>
         <x-alert></x-alert>
         <main>
-            <x-sidebar-user></x-sidebar-user>
-            <x-sidebar-admin></x-sidebar-admin>
             {{ $slot }}
         </main>
     </body>
