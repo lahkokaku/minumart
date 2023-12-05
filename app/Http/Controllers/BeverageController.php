@@ -36,6 +36,7 @@ class BeverageController extends Controller
             'beverage_type_id' => 'required|numeric',
             'outlet_id' => 'required|numeric',
             'name' => 'required|string|min:4',
+            'description' => 'required|string|min:8',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'photo' => 'required| mimes:png,jpeg,jpg | max:1999'
@@ -48,15 +49,33 @@ class BeverageController extends Controller
             $path = $request->file("photo")->storeAs("public/beverage_photo",$fileName);
         }
 
-        Beverage::create([
-            'beverage_type_id' => $request->beverage_type_id, 
-            'outlet_id' => $request->outlet_id, 
-            'name' => $request->name, 
-            'price' => $request->price, 
-            'quantity' => $request->quantity,
-            'rating' => 0 ,
-            'photo' => $fileName
-        ]);
+        if($request->outlet_id == 0){
+            $outlets = Outlet::all();
+            foreach($outlets as $outlet){
+                Beverage::create([
+                    'beverage_type_id' => $request->beverage_type_id, 
+                    'outlet_id' => $outlet->id, 
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'price' => $request->price, 
+                    'quantity' => $request->quantity,
+                    'rating' => 0 ,
+                    'photo' => $fileName
+                ]);
+            }
+        }else{
+            Beverage::create([
+                'beverage_type_id' => $request->beverage_type_id, 
+                'outlet_id' => $request->outlet_id, 
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price, 
+                'quantity' => $request->quantity,
+                'rating' => 0 ,
+                'photo' => $fileName
+            ]);
+        }
+
 
         return redirect()->route('beverages.index')->with('success', "Beverage has been successfuly created");
 
@@ -95,6 +114,7 @@ class BeverageController extends Controller
             'beverage_type_id' => 'required|numeric',
             'outlet_id' => 'required|numeric',
             'name' => 'required|string|min:4',
+            'description' => 'required|string|min:8',
             'price' => 'required|numeric',
             'quantity' => 'required|numeric',
             'photo' => 'nullable|mimes:png,jpeg,jpg|max:1999'
@@ -111,7 +131,8 @@ class BeverageController extends Controller
         $beverage->update([
             'beverage_type_id' => $request->beverage_type_id, 
             'outlet_id' => $request->outlet_id, 
-            'name' => $request->name, 
+            'name' => $request->name,
+            'description' => $request->description,
             'price' => $request->price, 
             'quantity' => $request->quantity,
             'photo' => $fileName
