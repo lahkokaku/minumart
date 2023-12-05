@@ -25,7 +25,7 @@
                     <div class="dropdown">
                         <button class="btn btn-gr-b3-b4 dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Your Order
+                            On Going Order
                         </button>
                             @php
                                 $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
@@ -38,7 +38,7 @@
                                         <li>
                                             <a href="{{ route('dashboards.user') }}?order={{ $order->id }}"
                                                 class="dropdown-item d-flex justify-content-between">
-                                                <span>Id: {{ $order->id }}</span>
+                                                <span>ID: {{ $order->id }}</span>
                                                 <span>Rp. {{ number_format($order->total_price) }} </span>
                                             </a>
                                         </li>

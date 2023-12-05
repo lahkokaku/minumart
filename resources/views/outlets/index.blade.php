@@ -14,7 +14,7 @@
         }
     </style>
     <section class="container py-5 my-5">
-        <h1> Please Select Outlet Bellow </h1>
+        <h2 class="text-gr-b3-b4">Please Select Your Preferred Outlet</h2>
         <hr>
         <div class="row">
             @foreach ($outlets as $outlet)
@@ -25,8 +25,8 @@
                     </a>
                     <div class="position-absolute w-100 text-center"
                         style="left:50%;top:50%; transform:translate(-50%,-50%)">
-                        <h1 class=" fw-bold"> <a href="{{ route('beverage-orders.index', [$outlet->id]) }}"
-                                class="text-decoration-none  text-dark" style="opacity: 1"> {{ $outlet->name }}</a></h1>
+                        <h2 class="fw-bold"> <a href="{{ route('beverage-orders.index', [$outlet->id]) }}"
+                                class="text-decoration-none text-blue-4" style="opacity: 1"> {{ $outlet->name }}</a></h2>
                     </div>
                 </div>
             @endforeach
