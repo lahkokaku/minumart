@@ -32,27 +32,29 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Your Order
                         </button>
-                        @php
-                            $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
-                                ->where('status', '!=', 4)
-                                ->get();
-                        @endphp
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            @if ($unFinishedOrder->count())
-                                @foreach ($unFinishedOrder as $order)
-                                    <li>
-                                        <a href="{{ route('dashboards.user') }}?order={{ $order->id }}"
-                                            class="dropdown-item d-flex justify-content-between">
-                                            <span>id :{{ $order->id }}</span>
-                                            <span> Rp {{ number_format($order->total_price) }} </span>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            @else
-                                    
-                                <li>  <a href="{{route('outlets.index')}}" class="dropdown-item"> No Pending Transaction </a></li>
-                            @endif
-                        </ul>
+                        @if (Auth::guard('web')->user()->id)
+                            @php
+                                $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
+                                    ->where('status', '!=', 4)
+                                    ->get();
+                            @endphp
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                @if ($unFinishedOrder->count())
+                                    @foreach ($unFinishedOrder as $order)
+                                        <li>
+                                            <a href="{{ route('dashboards.user') }}?order={{ $order->id }}"
+                                                class="dropdown-item d-flex justify-content-between">
+                                                <span>id :{{ $order->id }}</span>
+                                                <span> Rp {{ number_format($order->total_price) }} </span>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                @else
+                                    <li> <a href="{{ route('outlets.index') }}" class="dropdown-item"> No Pending
+                                            Transaction </a></li>
+                                @endif
+                            </ul>
+                        @endif
                     </div>
 
                     <div class="nav-item bg-blue-4 mx-1" style="width: 2px;"></div>
