@@ -4,14 +4,17 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\Admin;
+use Carbon\Traits\Timestamp;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class TransactionHeader extends Model
 {
     use HasFactory;
-    protected $guarded = [];
 
+    public $timestamps = true;
+    protected $guarded = [];
+    public $with = ['user','admin','transactionDetail'];
 
     public function  user(){
         return $this->belongsTo(User::class);
@@ -21,7 +24,7 @@ class TransactionHeader extends Model
         return $this->belongsTo(Admin::class);
     }
 
-    public function transcationDetail(){
+    public function transactionDetail(){
         return $this->hasMany(TransactionDetail::class);
     }
    

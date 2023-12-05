@@ -18,9 +18,9 @@ return new class extends Migration
             $table->timestamps();
             $table->string("name");
             $table->string("address");
-            $table->string("open_time");
+            $table->time("open_time");
             $table->string("photo")->nullable();
-            $table->string("closed_time");
+            $table->time("closed_time");
             $table->boolean("is_open");
         });
     }

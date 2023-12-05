@@ -1,17 +1,20 @@
-<x-layout>
-    <div class="container mt-5">
+<x-admin title="Create Beverage">
+    <div class="container mt-5 py-5">
+        <div class="mb-3">
+            <x-back-button link="{{ route('beverages.index') }}"></x-back-button>
+        </div>
         <x-card>
-            <h3 class="text-uppercase fw-bold display-6 text-gradient mb-4" style="letter-spacing: 0.1em">Create New
+            <h3 class="text-uppercase fw-bold text-blue-4 mb-4" style="letter-spacing: 0.1em">Create New
                 Beverages</h3>
             <form action="{{ route('beverages.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
                     <label for="beverage_type_id" class="col-form-label">Beverage Type <span
                             class="text-danger">*</span></label>
-                    <select name="beverage_type_id" class="form-control" id="">
+                    <select name="beverage_type_id" class="form-select" id="">
                         <option value="" disabled selected>{{ __('Choose...') }}</option>
                         @foreach ($beverageTypes as $beverageType)
-                            <option value="{{ $beverageType->id }}">{{ $beverageType->name }}</option>
+                            <option value="{{ $beverageType->id }}" {{ old('beverage_type_id') == $beverageType->id ? 'selected' : '' }}>{{ $beverageType->name }}</option>
                         @endforeach
                     </select>
                     @error('beverage_type_id')
@@ -23,10 +26,10 @@
 
                 <div class="form-group mb-3">
                     <label for="outlet_id" class="col-form-label">Outlet <span class="text-danger">*</span></label>
-                    <select name="outlet_id" class="form-control" id="">
+                    <select name="outlet_id" class="form-select" id="">
                         <option value="" disabled selected>{{ __('Choose...') }}</option>
                         @foreach ($outlets as $outlet)
-                            <option value="{{ $outlet->id }}">{{ $outlet->name }}</option>
+                            <option value="{{ $outlet->id }}" {{ old('outlet_id') == $outlet->id ? 'selected' : '' }}>{{ $outlet->name }}</option>
                         @endforeach
                     </select>
                     @error('outlet_id')
@@ -75,11 +78,6 @@
                     <input type="file" class="form-control" name="photo" id="photo"
                         accept="image/png,image/jpeg,image/jpg">
                     <small class="text-danger" style="font-size: 0.7em">Type : PNG, JPEG, JPG | Max : 2MB</small><br>
-                    @if ($errors->has('transfer_proof_bank'))
-                        <span class="invalid feedback text-danger"role="alert">
-                            <strong>*{{ $errors->first('transfer_proof_bank') }}.</strong>
-                        </span>
-                    @endif
                     @error('photo')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
@@ -88,12 +86,10 @@
                 </div>
 
                 <div class="row">
-                    <div class="col"><a href="{{ route('beverages.index') }}"
-                            class="btn btn-outline-dark w-100 rounded-pill">Back</a></div>
                     <div class="col"><button type="submit"
                             class="btn w-100 rounded-pill btn-outline-primary">Submit</button></div>
                 </div>
             </form>
         </x-card>
     </div>
-</x-layout>
+</x-admin>

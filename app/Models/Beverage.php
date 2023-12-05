@@ -13,6 +13,7 @@ class Beverage extends Model
     use HasFactory;
     protected $primaryKey = "id";
     protected $table = "beverages";
+    public $timestamps = true;
     protected $guarded =[];
 
     public function outlet(){

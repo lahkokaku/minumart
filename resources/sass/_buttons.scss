@@ -1,0 +1,124 @@
+@import 'variables';
+
+.btn-blue-3{
+    background: $blue-3;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: $blue-3;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-blue-3:hover{
+    background: $blue-4;
+    border-color: $blue-4;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+
+.btn-red{
+    background: $red;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: $red;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-red:hover{
+    scale: 105%;
+    background: $red;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+
+.btn-blue-3-outline{
+    background: rgba($color: #000000, $alpha: 0);
+    border-radius: 20px;
+    border: solid 2px;
+    border-color: $blue-3;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: $blue-3;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-blue-3-outline:hover{
+    background: $blue-3;
+    border: solid 2px;
+    border-color: $blue-3;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-blue-4-outline{
+    background: rgba($color: #000000, $alpha: 0);
+    border-radius: 20px;
+    border: solid 2px;
+    border-color: $blue-4;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: $blue-4;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-blue-4-outline:hover{
+    background: $blue-4;
+    border: solid 2px;
+    border-color: $blue-4;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-green-outline{
+    background: rgba($color: #000000, $alpha: 0);
+    border-radius: 20px;
+    border: solid 2px;
+    border-color: $green;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: $green;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-green-outline:hover{
+    background: $green;
+    border: solid 2px;
+    border-color: $green;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-red-outline{
+    background: rgba($color: #000000, $alpha: 0);
+    border-radius: 20px;
+    border: solid 2px;
+    border-color: $red;
+    padding: 8px 20px 8px 20px;
+    -webkit-text-fill-color: $red;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-red-outline:hover{
+    background: $red;
+    border: solid 2px;
+    border-color: $red;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+
+.btn-gr-b3-b4{
+    background-image: linear-gradient(to right, $blue-3, $blue-4);
+    border-radius: 20px;
+    padding: 9px 20px 9px 20px;
+    -webkit-text-fill-color: white;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}
+.btn-gr-b3-b4:hover{
+    scale: 105%;
+    transition: all ease-in-out;
+    transition-duration: 300ms;
+}

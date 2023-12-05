@@ -4,7 +4,12 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OutletController;
 use App\Http\Controllers\BeverageController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\BeverageOrderController;
+use App\Http\Controllers\BeverageTypeController;
+use App\Http\Controllers\PaymentProviderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,18 +26,43 @@ Route::get('/', function () {
     return view('home');
 });
 
+// Auth
 Auth::routes();
+Route::get('/login-admin', [LoginController::class, 'showLoginAdmin'])->name('show-login-admin');
+Route::post('/login-admin', [LoginController::class, 'loginAdmin'])->name('login-admin');
 
+// Beverage Type
+Route::resource('beverage-types', BeverageTypeController::class);
 
-//Beverage
+// Beverage
+Route::put('beverages/{id}/quantity', [BeverageController::class, 'updateQuantity'])->name('beverages.update-quantity');
 Route::resource('beverages', BeverageController::class);
 
-//Beverage Order 
-Route::get('beverage-orders/finish-order', [BeverageOrderController::class, 'finishOrder'])->name('beverage-orders.finish-order');
-Route::post('beverage-orders/checkout',[BeverageOrderController::class,'checkout'])->name('beverage-orders.checkout');
+// Dashboard
+Route::controller(DashboardController::class)->prefix('dashboards')->name('dashboards.')->group(function(){
+    Route::get('user', 'user')->name('user');
+    Route::get('admin', 'admin')->name('admin');
+});
 
-Route::get('/beverage-orders/{outlet?}', [BeverageOrderController::class, 'index'])->name('beverage-orders.index');
+// Beverage Order 
+Route::controller(BeverageOrderController::class)->prefix('beverage-orders')->name('beverage-orders.')->group(function(){
+    Route::get('finish-order', 'finishOrder')->name('finish-order');
+    Route::post('checkout','checkout')->name('checkout');
+    Route::get('{outlet?}', 'index')->name('index');
+});
 Route::resource('beverage-orders', BeverageOrderController::class)->except('index');
 
+// Payment Provider
+Route::resource('payment-providers', PaymentProviderController::class);
 
+// Transaction
+Route::controller(TransactionController::class)->prefix('transactions')->name('transactions.')->group(function(){
+    Route::get('manage', 'manage')->name('manage');
+    Route::get('{transactionHeader}/detail', 'detail')->name('detail');
+    Route::put('{id}/update-status-admin', 'updateStatusAdmin')->name('update-status-admin');
+});
+
+// Outlet
+Route::get('outlets/manage',[OutletController::class, 'manage'])->name('outlets.manage');
+Route::get('outlets/{id}/update-status',[OutletController::class, 'updateStatus'])->name('outlets.update-status');
 Route::resource('outlets', OutletController::class);

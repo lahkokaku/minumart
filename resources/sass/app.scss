@@ -1,5 +1,7 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url(https://fonts.bunny.net/css?family=lexend:200,400,500,600,700,800,900);
+@import url(https://fonts.bunny.net/css?family=roboto:100i,300,300i,400,400i,500,500i,700,700i,900,900i);
+
 
 // Variables
 @import 'variables';
@@ -8,19 +10,25 @@
 @import 'bootstrap/scss/bootstrap';
 
 
-// Styles
+// General Style
 body{
     background-color: $body-bg;
+    font-family: 'Roboto', sans-serif;
 }
 
-.bg-gr-lb-db{
-    background-image: linear-gradient(to right, $light-blue, $dark-blue);
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Lexend', sans-serif;
+    margin-bottom: 0px;
 }
 
-.bg-light-blue{
-    background-color: $light-blue;
-}
+// Backgrounds
+@import 'backgrounds';
 
-.bg-dark-blue{
-    background-color: $dark-blue;
-}
+// Texts
+@import 'texts';
+
+// Buttons
+@import 'buttons';
+
+// Dashboard style 
+@import 'dashboard';

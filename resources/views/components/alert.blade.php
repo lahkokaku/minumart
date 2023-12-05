@@ -1,6 +1,6 @@
 @if (count($errors) > 0)
-    <dialog class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-            aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
+            aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content rounded-20 border-0">
                     <div class="modal-header border-bottom-0">
@@ -21,7 +21,7 @@
                                         <li><h5 class="font-weight-normal"><i class="fas fa-exclamation-triangle text-danger"></i>{{$error}}</h5></li>
                                     @endforeach
                                 </ul>
-                                <button type="button" class="btn btn-outline-danger rounded-50 my-3 px-5"
+                                <button type="button" class="btn btn-red-outline rounded-50 my-3 px-5"
                                     data-bs-dismiss="modal">
                                     OK, I got it
                                 </button>
@@ -30,13 +30,12 @@
                     </div>
                 </div>
             </div>
-    </dialog>
+    </div>
 @endif 
 
 @if (session('error'))
-
     <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-        aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+        aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content rounded-20 border-0">
                 <div class="modal-header border-bottom-0">
@@ -53,7 +52,7 @@
                         <div class="col-12 my-2 text-center">
                             <h3 class="font-weight-bold">Error</h3>
                             <h5 class="font-weight-normal">{!! session('error') !!}</h5>
-                            <button type="button" class="btn btn-outline-danger rounded-50 my-3 px-5"
+                            <button type="button" class="btn btn-red-outline rounded-50 my-3 px-5"
                                 data-bs-dismiss="modal">
                                 OK, I got it
                             </button>
@@ -66,9 +65,8 @@
 @endif
 
 @if (session('success'))
-    {{-- {{dd('masuk sini')}} --}}
     <div class="modal fade pe-0" style="z-index: 9999;" id="alert" tabindex="-1" role="dialog"
-            aria-labelledby="alertTitle" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+            aria-labelledby="alertTitle" aria-modal="true" data-keyboard="false" data-backdrop="static">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content rounded-20 border-0">
                     <div class="modal-header border-bottom-0">
@@ -85,7 +83,7 @@
                             <div class="col-12 my-2 text-center">
                                 <h3 class="font-weight-bold">Success</h3>
                                 <h5 class="font-weight-normal">{!! session('success') !!}</h5>
-                                <button type="button" class="btn btn-outline-success rounded-50 my-3 px-5"
+                                <button type="button" class="btn btn-green-outline rounded-50 my-3 px-5"
                                     data-bs-dismiss="modal">
                                     OK, I got it
                                 </button>
