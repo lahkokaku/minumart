@@ -17,14 +17,26 @@ function appendTable (){
     let html = 
     
     `
-        <tr id="${item.id}">
-            <th scope="row">${item.id}</th>
-            <td class="name">${item.name}</td>
-            <td class="quantity">${item.quantity}</td>
-            <td class="total-price">${item.totalPrice}</td>
-        </tr>
+    <tr id="${item.id}">
+        <th scope="row">${item.id}</th>
+        <td class="name">${item.name}</td>
+        <td class="quantity">${item.quantity}</td>
+        <td class="total-price">${item.totalPrice}</td>
+        <td class="d-flex justify-content-center align-items-center" > 
+            <button class="btn btn-danger btn-sm fw-bold remove"  data-beverage="${item.id}"  > X </button>
+        </td>
+    </tr>
     `
     $('#show-cart').append(html)
+}
+
+function deleteTable(el){
+    let id = el.data('beverage')
+    cart.map( (curr,index) => {
+        if (curr.id == id) cart.splice(index,1)
+    });
+    $(`tr#${id}`).remove()
+    
 }
 
 function calculateTotalPrice(){
@@ -39,6 +51,34 @@ function updateTable(item){
     $(search).children(".total-price").text(item.totalPrice)
 }
 
+$("body").on("click",'.remove', function(){
+    deleteTable($(this));
+    $("#cart-length").text(cart.length)
+    console.log(cart.length);
+    $('#price').html(calculateTotalPrice())
+  });
+ 
+
+function toggleCart(){
+    if(!$('#cart-detail').hasClass('d-none')){
+        $('body').click(function(){
+            $('#cart-detail').toggleClass('d-none')
+
+        })
+    }
+    else{
+        $("#cart").click(function(){
+            $("#cart-detail").removeClass("d-none");
+        })
+        
+    }    
+}
+
+$('body').click(function(){
+    toggleCart()
+})
+ 
+//add to cart
 $(".add-to-cart").click(function(){
     // validate quantity
     let quantity = parseInt(validateQuantity($(this)))
@@ -73,9 +113,6 @@ $(".add-to-cart").click(function(){
 
 })
 
-$("#cart").click(function(){
-    $("#cart-detail").toggleClass("d-none");
-})
 
 $('#form').submit(function(){
     let id = []

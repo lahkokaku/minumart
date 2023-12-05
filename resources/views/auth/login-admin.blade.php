@@ -6,7 +6,7 @@
                     <div class="card-header">{{ __('Login as Admin') }}</div>
     
                     <div class="card-body">
-                        <form method="POST" action="{{ route('login-admin') }}">
+                        <form method="POST" action="{{ route('login-admin') }}" enctype="multipart/form-data">
                             @csrf
                             @method('POST')
                             <div class="row mb-3">

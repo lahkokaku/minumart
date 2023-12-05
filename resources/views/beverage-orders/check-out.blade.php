@@ -10,7 +10,7 @@
                             $beverage = $beverages->where("id", $id[$i])->first() 
                         @endphp
                          
-                        <div class=" w-100 rounded mb-4 bg-white row p-2 py-3 mx-auto justify-content-between">
+                        <div class=" w-100 rounded mb-4 bg-white row p-2 py-3 mx-auto justify-content-between align-items-center ">
                             <div class="col-6">
                                 <img src="/storage/beverage_photo/{{ $beverage->photo }}"alt="" class="img-fluid rounded shadow">
                             </div>
