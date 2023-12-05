@@ -52,6 +52,18 @@
                 </div>
 
                 <div class="form-group mb-3">
+                    <label for="description" class="col-form-label">Beverage Description <span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter beverage's description" name="description"
+                        id="description" value="{{ $beverage->description }}" required>
+                    @error('description')
+                        <span class="invalid feedback text-danger"role="alert">
+                            <small>*{!! $message !!}.</small>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group mb-3">
                     <label for="price" class="col-form-label">Price (IDR) <span class="text-danger">*</span></label>
                     <input type="number" class="form-control" name="price" id="price" value="{{ $beverage->price }}"
                         placeholder="Beverage Placeholder" required>

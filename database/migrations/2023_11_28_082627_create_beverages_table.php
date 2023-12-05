@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger("beverage_type_id");
             $table->unsignedBigInteger("outlet_id");
             $table->string("name");
+            $table->string("description");
             $table->double("price");
             $table->double("quantity");
             $table->double("rating");

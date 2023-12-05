@@ -27,7 +27,7 @@
                 <div class="form-group mb-3">
                     <label for="outlet_id" class="col-form-label">Outlet <span class="text-danger">*</span></label>
                     <select name="outlet_id" class="form-select" id="">
-                        <option value="" disabled selected>{{ __('Choose...') }}</option>
+                        <option value="0" selected>{{ __('For All Outlet') }}</option>
                         @foreach ($outlets as $outlet)
                             <option value="{{ $outlet->id }}" {{ old('outlet_id') == $outlet->id ? 'selected' : '' }}>{{ $outlet->name }}</option>
                         @endforeach
@@ -45,6 +45,18 @@
                     <input type="text" class="form-control" placeholder="Enter beverage's name" name="name"
                         id="name" value="{{ old('name') }}" required>
                     @error('name')
+                        <span class="invalid feedback text-danger"role="alert">
+                            <small>*{!! $message !!}.</small>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="form-group mb-3">
+                    <label for="description" class="col-form-label">Beverage Description <span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control" placeholder="Enter beverage's description" name="description"
+                        id="description" value="{{ old('description') }}" required>
+                    @error('description')
                         <span class="invalid feedback text-danger"role="alert">
                             <small>*{!! $message !!}.</small>
                         </span>
