@@ -27,15 +27,15 @@
                     <div class="nav-item">
                         <a href="{{ route('outlets.index') }}" class="btn btn-gr-b3-b4">Order</a>
                     </div>
+                    @if (Auth::guard('web')->user())
                     <div class="dropdown">
                         <button class="btn btn-gr-b3-b4 dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Your Order
                         </button>
-                        @if (Auth::guard('web')->user()->id)
                             @php
                                 $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
-                                    ->where('status', '!=', 4)
+                                    ->where('status', '!=', '4')
                                     ->get();
                             @endphp
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -44,18 +44,18 @@
                                         <li>
                                             <a href="{{ route('dashboards.user') }}?order={{ $order->id }}"
                                                 class="dropdown-item d-flex justify-content-between">
-                                                <span>id :{{ $order->id }}</span>
-                                                <span> Rp {{ number_format($order->total_price) }} </span>
+                                                <span>Id: {{ $order->id }}</span>
+                                                <span>Rp. {{ number_format($order->total_price) }} </span>
                                             </a>
                                         </li>
                                     @endforeach
                                 @else
-                                    <li> <a href="{{ route('outlets.index') }}" class="dropdown-item"> No Pending
+                                    <li> <a href="{{ route('outlets.index') }}" class="dropdown-item"> No On Going
                                             Transaction </a></li>
                                 @endif
                             </ul>
+                        </div>
                         @endif
-                    </div>
 
                     <div class="nav-item bg-blue-4 mx-1" style="width: 2px;"></div>
                 @endif
