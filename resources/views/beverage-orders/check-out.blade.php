@@ -1,50 +1,57 @@
 <x-user title="Check Out">
-    <div class="container my-5 py-5"> 
+    <div class="container my-5 py-5">
+        <div class="row px-4">
+            <div class="col-md-12">
+                <div class="mt-3">
+                    <x-back-button link=""></x-back-button>
+                </div>
+            </div>
+        </div>
         <div class="row bg-dark-blue px-4 py-4 rounded">
             <div class="col-md-12">
                 <x-card>
-                    <h1 class="fw-bold m-0 text-white"> Your Order</h1>
+                    <h1 class="fw-bold m-0 text-gr-b3-b4"> Your Order</h1>
                     <hr class="border border-1 border-dark">
                     @for ($i = 0; $i < count($id); $i++)
                         @php
                             $beverage = $beverages->where("id", $id[$i])->first() 
                         @endphp
                          
-                        <div class=" w-100 rounded mb-4 bg-white row p-2 py-3 mx-auto justify-content-between align-items-center ">
-                            <div class="col-6">
-                                <img src="/storage/beverage_photo/{{ $beverage->photo }}"alt="" class="img-fluid rounded shadow">
+                        <div class="w-100 rounded mb-4 row p-2 py-3 justify-content-between align-items-center">
+                            <div class="col-md-6 d-flex justify-content-center">
+                                <img src="/storage/beverage_photo/{{ $beverage->photo }}"alt="" class="beverage__thumb rounded shadow">
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <h5 class="fw-bold"> {{$beverage->name}}</h5>
-                                <div class="d-flex justify-content-between">
-                                    <p>Price</p>
-                                    <p>Rp. {{number_format($beverage->price)}}</p>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div>Price</div>
+                                    <div>Rp. {{number_format($beverage->price)}}</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <p>Quantity</p>
-                                    <p> {{$quantity[$i]}}</p>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div>Quantity</div>
+                                    <div> {{$quantity[$i]}}</div>
                                 </div>
 
-                                <div class="d-flex justify-content-between">
-                                    <p>Beverage Type</p>
-                                    <p>{{$beverage->beverageType->name}}</p>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div>Beverage Type</div>
+                                    <div>{{$beverage->beverageType->name}}</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <p>Outlet</p>
-                                    <p>{{$beverage->outlet->name}}</p>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div>Outlet</div>
+                                    <div>{{$beverage->outlet->name}}</div>
                                 </div>
-                                <div class="d-flex justify-content-between">
-                                    <p>Total</p>
-                                    <p>Rp. {{number_format($beverage->price * $quantity[$i])}}</p>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <div>Total</div>
+                                    <div>Rp. {{number_format($beverage->price * $quantity[$i])}}</div>
                                 </div>
                             </div>
                         </div>
                     @endfor
 
                     <hr class="border border-1 border-dark mt-0 mb-3" >
-                    <div class="d-flex justify-content-between">
-                        <h3> Grand Total</h1>
-                        <h3 class="fw-bold"> Rp. {{ number_format($grandTotal) }}</h3>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <h2 class="text-gr-b3-b4"> Grand Total</h2>
+                        <h1 class="fw-bold"> Rp. {{ number_format($grandTotal) }}</h1>
                     </div>
                 </x-card>
             </div>
