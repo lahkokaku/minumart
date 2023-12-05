@@ -99,7 +99,7 @@
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-8">
                         <x-card>
-                            <h1 class="fw-bold m-0 "> Your Detail Order</h1>
+                            <h1 class="fw-bold m-0 "> Your Order Detail</h1>
                             <hr class="border border-1 border-dark">
                             @foreach ($transactionHeader->transactionDetail as $transactionDetail)
                                 @php
@@ -115,7 +115,7 @@
                                         <h5 class="fw-bold"> {{ $beverage->name }}</h5>
                                         <div class="d-flex justify-content-between">
                                             <p>Price</p>
-                                            <p>Rp {{ number_format($beverage->price) }}</p>
+                                            <p>Rp. {{ number_format($beverage->price) }}</p>
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <p>Quantity</p>
@@ -132,7 +132,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between">
                                             <p>Total</p>
-                                            <p>Rp {{ number_format($beverage->price * $transactionDetail->quantity) }}
+                                            <p>Rp. {{ number_format($beverage->price * $transactionDetail->quantity) }}
                                             </p>
                                         </div>
                                     </div>

@@ -18,7 +18,7 @@
                                 <h5 class="fw-bold"> {{$beverage->name}}</h5>
                                 <div class="d-flex justify-content-between">
                                     <p>Price</p>
-                                    <p>Rp {{number_format($beverage->price)}}</p>
+                                    <p>Rp. {{number_format($beverage->price)}}</p>
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <p>Quantity</p>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <p>Total</p>
-                                    <p>Rp {{number_format($beverage->price * $quantity[$i])}}</p>
+                                    <p>Rp. {{number_format($beverage->price * $quantity[$i])}}</p>
                                 </div>
                             </div>
                         </div>
