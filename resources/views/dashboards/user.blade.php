@@ -71,7 +71,7 @@
                         <div class="col-12 col-md-8 text-center">
                             <x-card>
 
-                                {!! QrCode::size(250)->generate('https://techvblogs.com/blog/generate-qr-code-laravel-8') !!}
+                                {!! QrCode::size(250)->generate(env('APP_URL') . '/transactions/' . $transactionHeader->id . '/details' ) !!}
                                 <h3 class="fw-bold mt-3"> Your Order is Ready</h3>
                                 <p> Please pick up your order and give the qr code above to our staff </p>
                             </x-card>
@@ -97,43 +97,43 @@
                 </div>
 
                 <div class="row justify-content-center">
-                    <div class="col-12 col-md-8">
+                    <div class="col-md-10">
                         <x-card>
-                            <h1 class="fw-bold m-0 "> Your Order Detail</h1>
+                            <h1 class="fw-bold m-0 text-blue-3"> Your Order Detail</h1>
                             <hr class="border border-1 border-dark">
                             @foreach ($transactionHeader->transactionDetail as $transactionDetail)
                                 @php
                                     $beverage = $transactionDetail->beverage;
                                 @endphp
                                 <div
-                                    class=" w-100 rounded mb-4 bg-white row p-2 py-3 mx-auto justify-content-between align-items-center ">
-                                    <div class="col-6">
+                                    class="w-100 rounded mb-4 row p-2 py-3 mx-auto justify-content-between align-items-center ">
+                                    <div class="col-lg-6 d-flex justify-content-center">
                                         <img src="/storage/beverage_photo/{{ $beverage->photo }}"alt=""
-                                            class="img-fluid rounded shadow">
+                                            class="beverage__thumb rounded shadow">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-md-6">
                                         <h5 class="fw-bold"> {{ $beverage->name }}</h5>
-                                        <div class="d-flex justify-content-between">
-                                            <p>Price</p>
-                                            <p>Rp. {{ number_format($beverage->price) }}</p>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <div>Price</div>
+                                            <div>Rp. {{ number_format($beverage->price) }}</div>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <p>Quantity</p>
-                                            <p> {{ $transactionDetail->quantity }}</p>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <div>Quantity</div>
+                                            <div> {{ $transactionDetail->quantity }}</div>
                                         </div>
 
-                                        <div class="d-flex justify-content-between">
-                                            <p>Beverage Type</p>
-                                            <p>{{ $beverage->beverageType->name }}</p>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <div>Beverage Type</div>
+                                            <div>{{ $beverage->beverageType->name }}</div>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <p>Outlet</p>
-                                            <p>{{ $beverage->outlet->name }}</p>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <div>Outlet</div>
+                                            <div>{{ $beverage->outlet->name }}</div>
                                         </div>
-                                        <div class="d-flex justify-content-between">
-                                            <p>Total</p>
-                                            <p>Rp. {{ number_format($beverage->price * $transactionDetail->quantity) }}
-                                            </p>
+                                        <div class="d-flex justify-content-between mt-1">
+                                            <div>Total</div>
+                                            <div>Rp. {{ number_format($beverage->price * $transactionDetail->quantity) }}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

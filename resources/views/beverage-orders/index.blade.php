@@ -10,7 +10,7 @@
             @foreach ($beverages as $beverage)
                 <div class="col-md-4">
                     <x-card-beverage>
-                        <img src="/storage/beverage_photo/{{ $beverage->photo }}" alt="" class="img-fluid">
+                        <img src="/storage/beverage_photo/{{ $beverage->photo }}" alt="" class="beverage__thumb">
                         <div class="p-4">
                             <h3 class="card-title fw-bold m-0"> {{ $beverage->name }} </h3>
                             <p class="card-desc">{{ $beverage->description }}</p>
@@ -67,7 +67,7 @@
             <input type="text" value="" hidden id="quantity" name="quantity">
             <input type="text" value="{{ $outlet->id }}" hidden id="outlet_id" name="outlet_id">
             <input type="text" value="" hidden id="grand_total" name="grand_total">
-            <button class="btn btn-outline-success rounded-pill w-100 mb-4" type="submit"> Confirm Order</button>
+            <button class="btn btn-gr-b3-b4 fw-bold fs-4 w-100 mb-4" type="submit"> Confirm Order</button>
         </form>
 
     </div>
