@@ -1,7 +1,7 @@
-<x-admin title="User Dashboard">
+<x-user title="User Dashboard">
 
-    <div class="container">
-        {{-- {{dd($transactionHeader)}} --}}
+    <div class="container my-5 pt-5">
+        <h2 class="mt-3 fw-light" style="font-family: 'Roboto">Welcome Back, <span class="text-gr-b3-b4 fw-bold fs-2" style="font-family: 'Lexend';">{{ Auth::guard('web')->user()->name }}</span> 👋</h2>
         @if ($transactionHeader)
             <div class="d-flex justify-content-center">
                 <ul class="nav nav-tabs d-flex align-items-center border border-0 w-100 justify-content-center"
@@ -153,4 +153,4 @@
             </div>
         @endif
     </div>
-</x-admin>
+</x-user>
