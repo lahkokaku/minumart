@@ -50,7 +50,7 @@
                                 @endforeach
                             @else
                                     
-                                <li>  <a href="{{route('outlet.index')}}" class="dropdown-item"> No Pending Transaction </a></li>
+                                <li>  <a href="{{route('outlets.index')}}" class="dropdown-item"> No Pending Transaction </a></li>
                             @endif
                         </ul>
                     </div>

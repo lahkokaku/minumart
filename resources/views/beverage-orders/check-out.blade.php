@@ -68,7 +68,7 @@
 
                         <div class="form-group mt-3">
                             <label for="account_name" class="form-label">{{ __('Account Name') }}<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" name="account_name" value="{{ old('account_name') }}" placeholder="Your Account Name">
+                            <input type="text" class="form-control" name="account_name" value="{{ old('account_name') }}" placeholder="Your Account Name" required>
                             @error('account_name')
                                 <span class="invalid feedback text-danger" role="alert">
                                     <small>*{!! $message !!}.</small>
@@ -78,7 +78,7 @@
 
                         <div class="form-group mt-3">
                             <label for="account_number" class="form-label">{{ __('Account Number') }}<span class="text-danger"> *</span></label>
-                            <input type="text" class="form-control" name="account_number" value="{{ old('account_number') }}" placeholder="Your Account Number">
+                            <input type="text" class="form-control" name="account_number" value="{{ old('account_number') }}" placeholder="Your Account Number" required>
                             @error('account_number')
                                 <span class="invalid feedback text-danger" role="alert">
                                     <small>*{!! $message !!}.</small>
@@ -88,7 +88,7 @@
 
                         <div class="form-group mt-3">
                             <label for="payment_provider_id" class="form-label">{{ __('Payment Provider') }}<span class="text-danger"> *</span></label>
-                            <select name="payment_provider_id" class="form-select" id="payment_provider_id">
+                            <select name="payment_provider_id" class="form-select" id="payment_provider_id" required>
                                 <option value="" disabled selected>Choose...</option>
                                 <optgroup label="E-Wallet">
                                 @foreach ($paymentProviders as $paymentProvider)
@@ -115,7 +115,7 @@
                         <div class="form-group mt-3">
                             <label for="payment_proof" class="col-form-label">Payment Proof <span class="text-danger">*</span></label>
                             <input type="file" class="form-control" name="payment_proof" id="payment_proof"
-                                accept="image/png,image/jpeg,image/jpg">
+                                accept="image/png,image/jpeg,image/jpg" required>
                             <small class="text-danger" style="font-size: 0.7em">Type : PNG, JPEG, JPG | Max : 2MB</small><br>
                             @error('payment_proof')
                                 <span class="invalid feedback text-danger"role="alert">
