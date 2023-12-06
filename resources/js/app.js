@@ -1,6 +1,8 @@
 import '@popperjs/core';
 import './bootstrap';
 import './script.js';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import DataTable from 'datatables.net-bs5';
 
 window.DataTable = DataTable;
@@ -22,5 +24,13 @@ $(document).ready(function(){
             [5, 10, -1],
             [5, 10, 'All']
         ],
+    });
+});
+
+// AOS Init
+$(document).ready(function(){
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out'
     });
 });
