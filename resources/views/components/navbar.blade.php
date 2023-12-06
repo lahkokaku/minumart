@@ -32,7 +32,7 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Your Order
                         </button>
-                        @if (Auth::guard('web')->user()->id)
+                        @if (Auth::guard('web')->user())
                             @php
                                 $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
                                     ->where('status', '!=', 4)
