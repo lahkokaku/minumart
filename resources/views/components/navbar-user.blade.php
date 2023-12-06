@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg fixed-top shadow-sm text-black bg-white" style="font-family: 'Lexend', sans-serif; ">
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm text-black" style="font-family: 'Lexend', sans-serif; ">
     <div class="container" style="opacity: 100% !important;">
         <div class="d-inline-block py-2">
             @if (Auth::guard('web')->user())
@@ -15,8 +15,8 @@
             aria-controls="contain" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon pt-1 c-text-1"></span>
         </button>
-        <div class="navbar-collapse collapse" id="navbar-menu">
-            <div class="d-flex w-100 justify-content-end gap-2">
+        <div class="navbar-collapse collapse justify-content-end" id="navbar-menu">
+            <div class="navbar-nav mb-2 mb-lg-0 gap-2">
                 @if (!Auth::guard('admin')->user())
                     <div class="nav-item">
                         <a href="{{ route('outlets.index') }}" class="btn btn-gr-b3-b4">Order</a>
