@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Date;
 
 class DashboardController extends Controller
 {
+    public function __construct(){
+        $this->middleware('IsAdmin')->only(['admin']);
+        $this->middleware('IsCustomer')->only(['user']);
+    }
+
     public function user(){
         if(request('order') == null) {
             $transactionHeaders = TransactionHeader::where("user_id", Auth::guard("web")->user()->id)->first();
