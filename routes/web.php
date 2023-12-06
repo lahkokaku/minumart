@@ -57,10 +57,13 @@ Route::resource('payment-providers', PaymentProviderController::class);
 
 // Transaction
 Route::controller(TransactionController::class)->prefix('transactions')->name('transactions.')->group(function(){
+    Route::get('transaction-history', 'index')->name('index');
     Route::get('manage', 'manage')->name('manage');
     Route::get('{transactionHeader}/detail', 'detail')->name('detail');
     Route::put('{id}/update-status-admin', 'updateStatusAdmin')->name('update-status-admin');
 });
+
+
 
 // Outlet
 Route::get('outlets/manage',[OutletController::class, 'manage'])->name('outlets.manage');
