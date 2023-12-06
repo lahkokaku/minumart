@@ -15,12 +15,12 @@
                     <div class="nav-item">
                         <a href="{{ route('outlets.index') }}" class="btn btn-gr-b3-b4">Order</a>
                     </div>
-                    @if (Auth::guard('web')->user())
-                    <div class="dropdown">
-                        <button class="btn btn-gr-b3-b4 dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Your Order
-                        </button>
+                    @if (Auth::guard("web")->user())                        
+                        <div class="dropdown">
+                            <button class="btn btn-gr-b3-b4 dropdown-toggle" type="button" id="dropdownMenuButton1"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Your Order
+                            </button>
                             @php
                                 $unFinishedOrder = App\Models\TransactionHeader::where('user_id', Auth::guard('web')->user()->id)
                                     ->where('status', '!=', '4')
@@ -43,10 +43,11 @@
                                 @endif
                             </ul>
                         </div>
-                        @endif
+                    @endif
 
                     <div class="nav-item bg-blue-4 mx-1" style="width: 2px;"></div>
                 @endif
+
                 @if (!Auth::guard('web')->user() && !Auth::guard('admin')->user())
                     <div class="nav-item">
                         <a href="{{ route('login') }}" class="btn btn-blue-4-outline">Login</a>

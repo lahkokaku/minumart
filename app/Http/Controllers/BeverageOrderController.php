@@ -14,6 +14,11 @@ use Illuminate\Support\Facades\Auth;
 
 class BeverageOrderController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('IsCustomer');
+    }
+
     public function index($outlet= null ){
 
         if (!$outlet ) return redirect()->route("outlets.index")->with('error', "You must choose the outlet first");

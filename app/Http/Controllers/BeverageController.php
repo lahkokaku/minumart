@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 class BeverageController extends Controller
 {
      
+    public function __construct(){
+        $this->middleware('IsAdmin');
+    }
     
     public function index()
     {

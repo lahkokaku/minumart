@@ -19,7 +19,7 @@
             <span class="ms-2 text-black">Dashboard</span>
         </a>
         
-        <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="">
+        <a class="pointer p-2 d-flex align-items-center text-decoration-none mt-1" href="{{route('transactions.index')}}">
             <span class="rounded rounded-circle bg-blue-3 text-white d-flex justify-center p-2">
                 <i class="fa-solid fa-clock"></i>
             </span>

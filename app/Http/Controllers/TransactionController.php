@@ -2,13 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TransactionHeader;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Models\TransactionHeader;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
-    
+
+    public function __construct(){
+        $this->middleware('IsAdmin')->except(['index']);
+        $this->middleware('IsCustomer')->only(['index']);
+    }
+    public function index(){
+        return view ('transactions.index',[
+            "pendingTransactions" => TransactionHeader::where('status', '=', '1') 
+                ->where('user_id' , Auth::guard('web')->user()->id)
+                ->get(),
+            "makingTransactions" => TransactionHeader::where('status', '=', '2')
+                ->where('user_id' , Auth::guard('web')->user()->id)
+                ->get(),
+            "readyTransactions" => TransactionHeader::where('status', '=', '3')
+                ->where('user_id' , Auth::guard('web')->user()->id)
+                ->get(),
+            "finishTransactions" => TransactionHeader::where('status', '=', '4')
+                ->where('user_id' , Auth::guard('web')->user()->id)
+                ->get()
+        ]);
+    }
+
     public function manage(){
         
         return view('transactions.manage', [
