@@ -9,9 +9,9 @@ class OutletController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('IsAdmin');
+        $this->middleware('IsCustomer');
     }
-    
+
     public function index()
     {
         return view("outlets.index",[

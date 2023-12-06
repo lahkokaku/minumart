@@ -5,12 +5,12 @@
             background-repeat: no-repeat;
             background-position: center;
             aspect-ratio: 1 / 1;
-            opacity: 0.2;
+            opacity: 0.4;
             transition: 0.7s
         }
 
         .outlet a:hover{
-            opacity: 0.4;
+            opacity: 1;
         }
     </style>
     <section class="container py-5 my-5">
