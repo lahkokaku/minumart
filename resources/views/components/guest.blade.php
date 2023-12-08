@@ -1,5 +1,7 @@
 <x-layout title="{{ $title }}">
     <x-navbar></x-navbar>
-    {{ $slot }}
-    <x-footer></x-footer>
+    <div>
+        {{ $slot }}
+    </div>
+    {{-- <x-footer></x-footer> --}}
 </x-layout>
