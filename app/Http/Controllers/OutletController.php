@@ -9,7 +9,8 @@ class OutletController extends Controller
 {
 
     public function __construct(){
-        $this->middleware('IsCustomer');
+        $this->middleware('IsCustomer')->only(['index']);
+        $this->middleware('IsAdmin')->except(['index']);
     }
 
     public function index()
