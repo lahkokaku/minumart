@@ -35,11 +35,7 @@ class BeverageOrderController extends Controller
         $id = explode(",",$request->id);
         $quantity = explode(",",$request->quantity);
 
-        // dd($id);
-        // $len = count($id);
-        // for ($i = 0; $i < $len; $i++) {
-        //     $beverage = Beverage::find   ($id[$i]);
-        // }
+        if (!$request->id)return redirect()->back()->with('error', 'Your cart is empty');
 
         return view('beverage-orders.check-out', [
             'id' => $id,

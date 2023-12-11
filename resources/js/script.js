@@ -35,11 +35,13 @@ function deleteTable(el){
     cart.map( (curr,index) => {
         if (curr.id == id) cart.splice(index,1)
     });
+    if (cart.length <= 0 ) $('#submit').attr('disabled', true)
     $(`tr#${id}`).remove()
     
 }
 
 function calculateTotalPrice(){
+
     return cart.reduce( (acc,curr) => acc+curr.totalPrice ,0)
 }
 
@@ -109,7 +111,10 @@ $(".add-to-cart").click(function(){
     $('#price').html(`Rp ${total}`)
     //reset 
     item = {}
-    $(this).siblings().children(".counter").val(0) 
+    $(this).siblings().children(".counter").val(0)
+    
+    // remove disable submit button
+    $('#submit').attr('disabled', false)
 
 })
 
