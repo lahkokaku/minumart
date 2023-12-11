@@ -67,7 +67,7 @@
             <input type="text" value="" hidden id="quantity" name="quantity">
             <input type="text" value="{{ $outlet->id }}" hidden id="outlet_id" name="outlet_id">
             <input type="text" value="" hidden id="grand_total" name="grand_total">
-            <button class="btn btn-gr-b3-b4 fw-bold fs-4 w-100 mb-4" type="submit"> Confirm Order</button>
+            <button class="btn btn-gr-b3-b4 fw-bold fs-4 w-100 mb-4" type="submit"  disabled id="submit"> Confirm Order</button>
         </form>
 
     </div>
