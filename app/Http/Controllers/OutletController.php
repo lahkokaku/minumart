@@ -15,8 +15,11 @@ class OutletController extends Controller
 
     public function index()
     {
+
+        $outlets = Outlet::where('is_open', true)->get();
+
         return view("outlets.index",[
-            'outlets' => Outlet::all()
+            'outlets' => $outlets
         ]);
     }
 

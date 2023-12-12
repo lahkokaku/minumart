@@ -4,7 +4,7 @@
             <div class="position-relative text-white">
                 <div class="position-absolute bottom-50 start-50" data-aos="fade-left">
                     <h1 class="text-sm-start" style="font-size: 100px">Minumart</h1>
-                    <p class="text-sm-start" style="font-size: 18px">It is best to start your day with a cup of coffee. <br>Discover the best flavours coffee you will everhave.</p>
+                    <p class="text-sm-start" style="font-size: 18px">It is best to start your day with a cup of beverage. <br>Discover the best flavours beverage you will ever have.</p>
                     <a href="{{ route('outlets.index') }}">
                         <button type="button" class="btn btn-primary btn-lg text-white" style="border-radius: 20px">Order Now</button>
                     </a>
@@ -23,10 +23,8 @@
                         Minumart began as a modest venture, a dream painted in the hues of refreshing beverage. With every cup poured, the shop became a haven where conversations flowed like a gentle stream. From bleary-eyed mornings to vibrant evenings, Minumart evolved into a cultural epicenter, hosting art exhibitions, live performances, and community events.
                         <br><br>
                         As the seasons changed, so did Minumart's offerings, introducing unique blends that reflected the diversity of its patrons. The shop's ambiance mirrored the ebb and flow of life—a comforting constant in the midst of change. Through laughter, shared stories, and the comforting ritual of sipping warmth, Minumart etched its tale into the hearts of those who sought refuge within its welcoming walls.</p>
-
-                    <button type="button" class="btn btn-blue-3 btn-lg" style="border-radius: 20px">Read More</button>
                 </div>
-                <div class="col-12 col-lg-6 pb-4">
+                <div class="col-12 col-lg-6 pb-4 d-flex justify-content-end">
                     <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="img-fluid rounded-pill" width="500px" alt="">
                 </div>
             </div>

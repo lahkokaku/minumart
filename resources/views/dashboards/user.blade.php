@@ -148,7 +148,7 @@
                 <div class="col-md-6">
                     <img src="/storage/assets/order.webp" alt="order" class="img-fluid w-100">
                 </div>
-                <h1 class="text-center"> You have no order yet <a href="{{route('outlets.index')}}"> Start Order</a> </h1>
+                <h1 class="text-center"> You have no order yet <br> <a href="{{route('outlets.index')}}"> Start Order</a> </h1>
 
             </div>
         @endif

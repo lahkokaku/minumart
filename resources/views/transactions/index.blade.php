@@ -33,13 +33,7 @@
                                     <button class="btn btn-primary rounded btn-sm" title="View Payment Proof">
                                         <i class="fa-solid fa-receipt"></i>
                                     </button>
-                                </a>
-                                <a href="{{ route('transactions.detail', $pendingTransaction) }}" rel="noopener noreferrer">
-                                    <button class="btn btn-dark rounded btn-sm" title="View Details">
-                                        <i class="fa-solid fa-list"></i>
-                                    </button>
-                                </a>
-                                 
+                                </a>                                 
                             </td>
                         </tr>
                     @endforeach
@@ -83,12 +77,6 @@
                                         <i class="fa-solid fa-receipt"></i>
                                     </button>
                                 </a>
-                                <a href="{{ route('transactions.detail', $makingTransaction) }}" rel="noopener noreferrer">
-                                    <button class="btn btn-dark rounded btn-sm" title="View Details">
-                                        <i class="fa-solid fa-list"></i>
-                                    </button>
-                                </a>
-                                 
                             </td>
                         </tr>
                     @endforeach
@@ -133,12 +121,6 @@
                                         <i class="fa-solid fa-receipt"></i>
                                     </button>
                                 </a>
-                                <a href="{{ route('transactions.detail', $readyTransaction) }}" rel="noopener noreferrer">
-                                    <button class="btn btn-dark rounded btn-sm" title="View Details">
-                                        <i class="fa-solid fa-list"></i>
-                                    </button>
-                                </a>
-                                 
                             </td>
                         </tr>
                     @endforeach
@@ -184,12 +166,6 @@
                                         <i class="fa-solid fa-receipt"></i>
                                     </button>
                                 </a>
-                                <a href="{{ route('transactions.detail', $finishTransaction) }}" rel="noopener noreferrer">
-                                    <button class="btn btn-dark rounded btn-sm" title="View Details">
-                                        <i class="fa-solid fa-list"></i>
-                                    </button>
-                                </a>
-                                
                             </td>
                         </tr>
                         @endforeach
