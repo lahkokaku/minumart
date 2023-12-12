@@ -3,5 +3,5 @@
     <div>
         {{ $slot }}
     </div>
-    {{-- <x-footer></x-footer> --}}
+    <x-footer></x-footer>
 </x-layout>

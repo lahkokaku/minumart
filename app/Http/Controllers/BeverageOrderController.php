@@ -24,7 +24,7 @@ class BeverageOrderController extends Controller
         if (!$outlet ) return redirect()->route("outlets.index")->with('error', "You must choose the outlet first");
 
         $outlet = Outlet::find($outlet);
-        $beverages = Beverage::where("outlet_id",$outlet->id)->get();
+        $beverages = Beverage::where("outlet_id",$outlet->id)->where("quantity", ">", 0)->get();
         return view('beverage-orders.index',[
             'outlet' => $outlet,
             'beverages' => $beverages
